@@ -1,0 +1,12 @@
+[[languages]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py"]
+shebangs = ["python"]
+roots = []
+comment-token = "#"
+language-server = { command = "pylsp" }
+# TODO: pyls needs utf-8 offsets
+config = { pylsp.plugins.flake8.enabled = true, pylsp.plugins.flake8.config = ".flake8", pylsp.plugins.isort.enabled = true, pylsp.plugins.black.enabled=true, pylsp.plugins.mypy.enabled = true}
+indent = { tab-width = 4, unit = "    " }

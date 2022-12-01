@@ -1,0 +1,21 @@
+source "$HOME/.antigen/antigen.zsh"
+
+antigen use oh-my-zsh
+
+antigen bundle pip
+antigen bundle git
+antigen bundle fzf
+antigen bundle zsh-interactive-cd
+antigen bundle python
+antigen bundle command-not-found
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
+
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+export PATH="$HOME/.local/share/fnm:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
+alias ls="exa -lgh"
+
+eval "$(fnm env)"
+eval "$(starship init zsh)"

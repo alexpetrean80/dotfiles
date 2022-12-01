@@ -1,0 +1,33 @@
+theme = "tokyonight_storm"
+
+[editor]
+line-number = "relative"
+cursorline = true
+color-modes = true
+auto-completion = true
+auto-format = true
+
+[editor.statusline]
+left = ["mode"]
+center = []
+right = ["file-name", "diagnostics", "selections", "file-encoding", "file-line-ending", "file-type", "spinner"]
+separator= "|"
+
+[editor.lsp]
+display-messages = true
+
+[editor.cursor-shape]
+normal = "underline"
+insert = "bar"
+select = "block"
+
+[editor.auto-pairs]
+'<' = '>'
+
+[editor.whitespace]
+render = "all"
+
+[editor.indent-guides]
+render = true
+character = "╎"
+
