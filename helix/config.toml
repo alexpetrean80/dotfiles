@@ -17,9 +17,9 @@ separator= "|"
 display-messages = true
 
 [editor.cursor-shape]
-normal = "underline"
+select = "underline"
 insert = "bar"
-select = "block"
+normal = "block"
 
 [editor.auto-pairs]
 '<' = '>'
