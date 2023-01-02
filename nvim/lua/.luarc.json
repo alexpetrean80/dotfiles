@@ -1,0 +1,21 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.workspace.library": [
+        "/home/padfoot/.config/nvim",
+        "/home/padfoot/.local/share/nvim/site",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/mason.nvim",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/onedark",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/vim-sandwich",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+        "/squashfs-root/usr/share/nvim/runtime",
+        "/squashfs-root/usr/lib/nvim",
+        "/home/padfoot/.local/share/nvim/site/pack/packer/start/vim-sandwich/after",
+        "/home/padfoot/.config/nvim/after",
+        "${3rd}/luassert/library"
+    ]
+}
