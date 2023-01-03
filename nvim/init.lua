@@ -1,9 +1,17 @@
+require("padfoot.plugins")
+
 require("padfoot.options")
 require("padfoot.keymaps")
 
-require("padfoot.plugins")
 
-require("onedark").load()
+-- set onedark as theme if nvim is opened in wsl
+local handle = io.popen('grep microsoft /proc/version | wc - l')
+if handle then
+    local res = handle:read("*a")
+    if res == 1 then
+        require("onedark").load()
+    end
+end
 
 require("padfoot.telescope")
 require("padfoot.treesitter")

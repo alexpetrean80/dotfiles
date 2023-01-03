@@ -1,7 +1,7 @@
 require("packer").startup({
 	function(use)
 		use("wbthomason/packer.nvim")
-
+        use("ellisonleao/gruvbox.nvim")
 		-- lsp
 		use("williamboman/mason.nvim")
 		use("williamboman/mason-lspconfig.nvim")
@@ -32,6 +32,7 @@ require("packer").startup({
 				vim.g.gitblame_enabled = 0
 			end,
 		})
+        use("tpope/vim-fugitive")
 
 		-- completion
 		use("hrsh7th/nvim-cmp")

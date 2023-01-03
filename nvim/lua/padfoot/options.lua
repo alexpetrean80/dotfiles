@@ -36,3 +36,6 @@ vim.opt.shortmess:append 'c'
 vim.opt.whichwrap:append('<,>,[,],h,l')
 vim.opt.iskeyword:append('-')
 vim.opt.formatoptions:remove({'c', 'r', 'o'})
+
+vim.o.background = "dark"
+vim.cmd([[colorscheme gruvbox]])
