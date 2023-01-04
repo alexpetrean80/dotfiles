@@ -17,7 +17,7 @@ null_ls.setup({
 		diagnostics.eslint,
         diagnostics.golanci_lint,
         code_actions.gomodifytags,
-        code_actions.refactoring,
+        -- code_actions.refactoring,
         code_actions.shellcheck
 	},
 })

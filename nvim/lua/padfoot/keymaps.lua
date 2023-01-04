@@ -70,6 +70,8 @@ wk.register({
 	["N"] = { "<cmd>BufferLineCloseNext<CR>", "Close Next Buffer" },
 	["p"] = { "<cmd>BufferLineCyclePrev<CR>", "Previous Buffer" },
 	["P"] = { "<cmd>BufferLineClosePrev<CR>", "Close Previous Buffer" },
+	["s"] = { "<cmd>vsplit<CR>", "Split vertically" },
+	["S"] = { "<cmd>split<CR>", "Split horizontally" },
 	["l"] = {
 		name = "LSP",
 		["a"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
