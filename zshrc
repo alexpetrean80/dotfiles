@@ -42,3 +42,6 @@ fi
 if [[ -d "$HOME/.local/share/fnm" ]]; then
 	eval "$(fnm env)"
 fi
+
+# Turso
+export PATH="/home/alexp/.turso:$PATH"
