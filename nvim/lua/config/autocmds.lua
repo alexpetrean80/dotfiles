@@ -39,3 +39,9 @@ augroup GodotTabs
   autocmd FileType gd setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 augroup END
 ]])
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
