@@ -2,6 +2,7 @@ local config = function()
   require("nvim-treesitter.configs").setup({
     -- A list of parser names, or "all"
     ensure_installed = "all",
+    ignore_install = { "hoon" },
     highlight = { enable = true, use_languagetree = true },
     indent = { enable = true },
     autotag = { enable = true },
