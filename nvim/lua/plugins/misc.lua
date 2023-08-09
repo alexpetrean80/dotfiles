@@ -1,4 +1,6 @@
 return {
+  { "dstein64/vim-startuptime" },
+  { "folke/neodev.nvim",       opts = {} },
   { "machakann/vim-sandwich" },
   {
     "echasnovski/mini.comment",

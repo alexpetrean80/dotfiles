@@ -109,7 +109,6 @@ local lsp_servers = {
   jsonls = {},
   gdscript = {},
   dockerls = {},
-  metals = {},
   pyright = {},
   rust_analyzer = {},
   taplo = {},

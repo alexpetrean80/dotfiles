@@ -1,3 +1,6 @@
+if [[ $(grep microsoft /proc/version) ]]; then
+  unset DISPLAY
+fi
 source "$HOME/.antigen/antigen.zsh"
 
 antigen use oh-my-zsh
@@ -5,7 +8,6 @@ antigen use oh-my-zsh
 antigen bundle fzf
 antigen bundle zsh-interactive-cd
 antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
@@ -27,13 +29,18 @@ try_add_to_path() {
 	dir=$1
 	if [[ -d $dir ]]; then
 		export PATH="$dir:$PATH"
-	else
-		echo "$dir doesn't exist. skipping..."
 	fi
 }
 try_add_to_path "$HOME/.local/share/fnm"
 try_add_to_path "$HOME/.cargo/bin"
 try_add_to_path "$HOME/.local/bin"
+
+if [[ ! -d "$HOME/.npm-global" ]]; then
+  mkdir "$HOME/.npm-global"
+  npm config set prefix "$HOME/.npm-global"
+  export PATH="$HOME/.npm-global/bin:$PATH"
+fi
+
 
 if [[ $(command -v starship) ]]; then
 	eval "$(starship init zsh)"
