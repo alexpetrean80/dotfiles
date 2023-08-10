@@ -1,6 +1,18 @@
 if [[ $(grep microsoft /proc/version) ]]; then
   unset DISPLAY
 fi
+
+if [[ $(command -v nvim) ]]; then
+  export EDITOR=nvim
+  export VISUAL=nvim
+elif [[ $(command -v vim) ]]; then
+  export EDITOR=vim
+  export VISUAL=vim
+else
+  export EDITOR=vi
+  export VISUAL=vi
+fi
+
 source "$HOME/.antigen/antigen.zsh"
 
 antigen use oh-my-zsh
