@@ -43,7 +43,7 @@ local normal_maps = {
       "<cmd>lua require('telescope.builtin').diagnostics({layout_strategy='vertical'})<CR>",
       "Project Diagnostics",
     },
-    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    r = { ":IncRename ", "Rename" },
   },
   r = {
     name = 'Refactoring',
