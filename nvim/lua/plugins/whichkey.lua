@@ -1,4 +1,5 @@
 local normal_maps = {
+  a = { "<cmd>Alpha<CR>", "Dashboard" },
   [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
   ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
   b = {
@@ -51,6 +52,7 @@ local normal_maps = {
     B = { "<cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file" },
     i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline variable" },
   },
+  M = { "<cmd>Mason<CR>", "Mason" },
 }
 
 local normal_opts = {
