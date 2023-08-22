@@ -9,6 +9,7 @@ local config = function()
       },
       filetypes = {
         ["."] = true,
+        yaml = true
       },
     })
   end, 100)
