@@ -37,6 +37,10 @@ alias dctest="docker compose run test pytest"
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
+export svenv() {
+  source "$HOME/.venvs/$1/bin/activate"
+}
+
 try_add_to_path() {
 	dir=$1
 	if [[ -d $dir ]]; then
