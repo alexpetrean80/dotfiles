@@ -11,8 +11,6 @@ return {
       require("inc_rename").setup()
     end,
   },
-  { "dstein64/vim-startuptime" },
-  { "folke/neodev.nvim",       opts = {} },
   { "machakann/vim-sandwich" },
   {
     "echasnovski/mini.comment",
@@ -32,7 +30,7 @@ return {
       ts_config = {
         lua = { "string" }, -- it will not add a pair on that treesitter node
         javascript = { "template_string" },
-        java = false,   -- don"t check treesitter on java
+        java = false,       -- don"t check treesitter on java
       },
 
       -- Don"t add pairs if it already has a close pair in the same line

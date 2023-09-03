@@ -11,7 +11,6 @@ local normal_maps = {
 	},
 	h = { "<cmd>Telescope help_tags<CR>", "Help" },
 	e = { "<cmd>Neotree float toggle<CR>", "Explorer" },
-	f = { "<cmd>FormatWrite<CR>", "Format" },
 	p = {
 		name = "Projects",
 		p = { "<cmd>Telescope projects<CR>", "List" },
