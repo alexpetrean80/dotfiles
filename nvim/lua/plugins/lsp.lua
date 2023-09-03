@@ -71,11 +71,7 @@ return {
           documentRangeFormatting = true,
         },
       }, {}))
-      require("lspconfig").lua.setup({
-        diagnostics = {
-          globals = { "vim" },
-        },
-      })
+
       lsp.setup()
     end,
   },
