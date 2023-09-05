@@ -13,7 +13,7 @@ return {
       },
     },
     config = function()
-      local lsp = require("lsp-zero").preset("lsp-only")
+      local lsp = require("lsp-zero").preset({})
 
       lsp.on_attach(function(_, bufnr)
         lsp.default_keymaps({ buffer = bufnr })

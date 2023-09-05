@@ -1,10 +1,11 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-path" },
-    { "hrsh7th/cmp-buffer" },
-    { "L3MON4D3/LuaSnip" },
+    "hrsh8th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-buffer",
+    "L3MON4D3/LuaSnip",
+    "zbirenbaum/copilot.lua",
   },
   config = function()
     local cmp = require("cmp")
