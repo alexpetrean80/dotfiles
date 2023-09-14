@@ -24,7 +24,7 @@ antigen bundle command-not-found
 antigen apply
 
 alias ls="exa -lgh"
-alias lzg="lazygit"
+alias lzg="lazygit --use-config-file="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/mocha/rosewater.yml""
 alias dc="docker compose"
 alias dcu="docker compose up"
 alias dce="docker compose exec"
