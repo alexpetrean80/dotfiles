@@ -21,7 +21,7 @@ end
 
 return {
   font = wezterm.font("Delugia"),
-  font_size = 14,
+  font_size = 16,
   color_scheme = scheme_for_appearance(get_appearance()),
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = false,
