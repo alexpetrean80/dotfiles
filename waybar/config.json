@@ -96,7 +96,7 @@
   },
   "custom/lock": {
     "tooltip": false,
-    "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
+    "on-click": "sh -c '(sleep 0.5s; swaylock --image $HOME/.config/hypr/wallpaper.png)' & disown",
     "format": ""
   },
   "custom/power": {
