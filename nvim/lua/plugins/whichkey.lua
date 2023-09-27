@@ -29,6 +29,7 @@ local normal_maps = {
   g = {
     name = "Git",
     b = { "<cmd>Telescope git_branches<CR>", "Branches" },
+    g = {"<cmd>Neogit kind=floating<CR>", "Neogit"},
     s = { "<cmd>Gitsigns stage_hunk()<CR>", "Stage hunk" },
     u = { "<cmd>Gitsigns undo_stage_hunk()<CR>", "Undo stage hunk" },
     ["["] = { "<cmd>Gitsigns next_hunk()<CR>", "Next hunk" },
