@@ -1,5 +1,8 @@
-if [[ $(grep microsoft /proc/version) ]]; then
-  unset DISPLAY
+
+if [[ -e /proc/version ]]; then
+  if [[ $(grep microsoft /proc/version) ]]; then
+    unset DISPLAY
+  fi
 fi
 
 if [[ $(command -v nvim) ]]; then
