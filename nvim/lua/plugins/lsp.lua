@@ -30,7 +30,6 @@ return {
       local golangci_lint = require("efmls-configs.linters.golangci_lint")
       local gofmt = require("efmls-configs.formatters.gofmt")
       local goimports = require("efmls-configs.formatters.goimports")
-      local golines = require("efmls-configs.formatters.golines")
       local eslint = require("efmls-configs.linters.eslint")
       local eslint_fmt = require("efmls-configs.formatters.eslint")
       local jq = require("efmls-configs.linters.jq")
@@ -50,7 +49,11 @@ return {
         css = { stylelint, prettier },
         docker = { hadolint },
         gitcommit = { gitlint },
-        go = { golangci_lint, gofmt, goimports, golines },
+        go = {
+          golangci_lint,
+          gofmt,
+          goimports,
+        },
         html = { prettier },
         javascript = { eslint, eslint_fmt, prettier },
         json = { jq, prettier },

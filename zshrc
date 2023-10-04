@@ -52,6 +52,7 @@ try_add_to_path() {
 }
 try_add_to_path "$HOME/.local/share/fnm"
 try_add_to_path "$HOME/.cargo/bin"
+try_add_to_path "$HOME/go/bin"
 try_add_to_path "$HOME/.local/bin"
 
 if [[ ! -d "$HOME/.npm-global" ]]; then
@@ -69,5 +70,6 @@ if [[ -d "$HOME/.local/share/fnm" ]]; then
 	eval "$(fnm env)"
 fi
 
-# Turso
-export PATH="/home/alexp/.turso:$PATH"
+if [[ $(uname -a | grep Darwin) ]]; then
+  export GPG_TTY=$TTY
+fi

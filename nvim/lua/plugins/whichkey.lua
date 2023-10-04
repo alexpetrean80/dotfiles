@@ -16,8 +16,15 @@ local normal_maps = {
     p = { '<cmd>lua require("copilot.panel").jump_prev()<CR>', "Previous suggestion" },
     r = { '<cmd>lua require("copilot.panel").refresh()<CR>', "Reject suggestion" },
   },
-  h = { "<cmd>Telescope help_tags<CR>", "Help" },
   e = { "<cmd>lua MiniFiles.open()<CR>", "Explorer" },
+  H = { "<cmd>Telescope help_tags<CR>", "Help" },
+  h = {
+    name = "Harpoon",
+    a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add file" },
+    t = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Toggle menu" },
+    n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Next file" },
+    p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Previous file" },
+  },
   p = {
     name = "Projects",
     p = { "<cmd>Telescope projects<CR>", "List" },
@@ -29,7 +36,7 @@ local normal_maps = {
   g = {
     name = "Git",
     b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-    g = {"<cmd>Neogit<CR>", "Neogit"},
+    g = { "<cmd>Neogit<CR>", "Neogit" },
     s = { "<cmd>Gitsigns stage_hunk()<CR>", "Stage hunk" },
     u = { "<cmd>Gitsigns undo_stage_hunk()<CR>", "Undo stage hunk" },
     ["["] = { "<cmd>Gitsigns next_hunk()<CR>", "Next hunk" },
@@ -40,11 +47,11 @@ local normal_maps = {
     a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
     f = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format" },
     d = {
-      "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0, layout_strategy='vertical'})<CR>",
+      "<cmd>lua require('telescope.builtin').diagnostics(require('telescope.themes').get_ivy({}))<CR>",
       "File Diagnostics",
     },
     D = {
-      "<cmd>lua require('telescope.builtin').diagnostics({layout_strategy='vertical'})<CR>",
+      "<cmd>lua require('telescope.builtin').diagnostics(require('telescope.themes').get_ivy({}))<CR>",
       "Project Diagnostics",
     },
     r = { ":IncRename ", "Rename" },
