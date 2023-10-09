@@ -16,9 +16,7 @@ keymap.set("v", ">", ">gv", opts)
 -- Better paste
 keymap.set("v", "p", '"_dP', opts)
 
--- Telescope
-keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-keymap.set("n", "gI", "<cmd>Telescope lsp_implementatinos<CR>", opts)
-keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 keymap.set("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+
+keymap.set("n", "<leader>\\", "<cmd>vsp<CR>", { silent = true, noremap = true, nowait = true, desc = "Vertical split" })
+keymap.set("n", "<leader>-", "<cmd>sp<CR>", { silent = true, noremap = true, nowait = true, desc = "Horizontal split" })

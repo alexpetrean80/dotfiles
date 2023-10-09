@@ -76,3 +76,5 @@ if [[ $(uname -a | grep Darwin) ]]; then
 fi
 
 source "$HOME/.profile"
+
+eval "$(fnm env --use-on-cd)"

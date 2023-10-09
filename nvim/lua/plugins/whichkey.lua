@@ -1,23 +1,13 @@
 local normal_maps = {
-  a = { "<cmd>Alpha<CR>", "Dashboard" },
-  [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
-  ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
+  a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action"},
   b = {
     name = "Buffers",
     n = { "<cmd>bnext<CR>", "Next" },
     p = { "<cmd>bprevious<CR>", "Previous" },
-    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
     d = { "<cmd>bd<CR>", "Delete" },
   },
-  c = {
-    name = "Copilot",
-    a = { '<cmd>lua require("copilot.panel").accept()<CR>', "Accept suggestion" },
-    n = { '<cmd>lua require("copilot.panel").jump_next()<CR>', "Next suggestion" },
-    p = { '<cmd>lua require("copilot.panel").jump_prev()<CR>', "Previous suggestion" },
-    r = { '<cmd>lua require("copilot.panel").refresh()<CR>', "Reject suggestion" },
-  },
   e = { "<cmd>lua MiniFiles.open()<CR>", "Explorer" },
-  H = { "<cmd>Telescope help_tags<CR>", "Help" },
+  f = {"<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format"},
   h = {
     name = "Harpoon",
     a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add file" },
@@ -25,36 +15,29 @@ local normal_maps = {
     n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Next file" },
     p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Previous file" },
   },
-  p = {
-    name = "Projects",
-    p = { "<cmd>Telescope projects<CR>", "List" },
-    a = { "<cmd>AddProject<CR>", "Add" },
-    r = { "<cmd>ProjectRoot<CR>", "CWD Project Root" },
-  },
-  ["\\"] = { "<cmd>vsplit<CR>", "Vertical split" },
-  ["-"] = { "<cmd>split<CR>", "Horizontal split" },
   g = { "<cmd>Neogit<CR>", "Neogit" },
-  l = {
-    name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
-    f = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format" },
-    d = {
-      "<cmd>lua require('telescope.builtin').diagnostics(require('telescope.themes').get_ivy({}))<CR>",
-      "File Diagnostics",
-    },
-    D = {
-      "<cmd>lua require('telescope.builtin').diagnostics(require('telescope.themes').get_ivy({}))<CR>",
-      "Project Diagnostics",
-    },
-    r = { ":IncRename ", "Rename" },
-  },
-  r = {
+  r = {":IncRename ", "Rename"},
+  R = {
     name = "Refactoring",
     b = { "<cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract block" },
     B = { "<cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file" },
     i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline variable" },
   },
-  M = { "<cmd>Mason<CR>", "Mason" },
+  t = {
+    name = "Telescope",
+    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
+    d = { "<cmd>Telescope lsp_definitions<CR>", "Definitions" },
+    D = {
+      "<cmd>lua require('telescope.builtin').diagnostics(require('telescope.themes').get_ivy({}))<CR>",
+      "File Diagnostics",
+    },
+    f = { "<cmd>Telescope find_files<CR>", "Find file" },
+    g = { "<cmd>Telescope live_grep<CR>", "Grep" },
+    h = { "<cmd>Telescope help_tags<CR>", "Help" },
+    i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
+    r = { "<cmd>Telescope lsp_references<CR>", "References" },
+    t = { "<cmd>Telescope lsp_type_definitions<CR>", "Type definitions" },
+  },
 }
 
 local normal_opts = {
@@ -67,7 +50,7 @@ local normal_opts = {
 }
 
 local visual_maps = {
-  r = {
+  R = {
     name = "Refactoring",
     f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract function" },
     F = {
@@ -76,11 +59,6 @@ local visual_maps = {
     },
     v = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract variable" },
     i = { "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline variable" },
-  },
-  g = {
-    "Git",
-    s = { "<cmd>Gitsigns stage_hunk<CR>", "Stage hunk" },
-    r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset hunk" },
   },
 }
 
