@@ -32,14 +32,17 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
-      -- char = "▏",
       char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+      filetype_exclude = { "help", "lazy" },
       show_trailing_blankline_indent = false,
       show_current_context = false,
     },
+    config = function()
+      require("ibl").setup({})
+    end,
   },
   {
     "stevearc/dressing.nvim",

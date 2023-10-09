@@ -33,15 +33,7 @@ local normal_maps = {
   },
   ["\\"] = { "<cmd>vsplit<CR>", "Vertical split" },
   ["-"] = { "<cmd>split<CR>", "Horizontal split" },
-  g = {
-    name = "Git",
-    b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-    g = { "<cmd>Neogit<CR>", "Neogit" },
-    s = { "<cmd>Gitsigns stage_hunk()<CR>", "Stage hunk" },
-    u = { "<cmd>Gitsigns undo_stage_hunk()<CR>", "Undo stage hunk" },
-    ["["] = { "<cmd>Gitsigns next_hunk()<CR>", "Next hunk" },
-    ["]"] = { "<cmd>Gitsigns prev_hunk()<CR>", "Previous hunk" },
-  },
+  g = { "<cmd>Neogit<CR>", "Neogit" },
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
