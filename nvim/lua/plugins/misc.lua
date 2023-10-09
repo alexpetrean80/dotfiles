@@ -1,11 +1,5 @@
 return {
   {
-    "ellisonleao/glow.nvim",
-    config = function()
-      require("glow").setup()
-    end,
-  },
-  {
     "smjonas/inc-rename.nvim",
     config = function()
       require("inc_rename").setup()
@@ -30,24 +24,5 @@ return {
       require("mini.pairs").setup()
     end,
   },
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup({
-        patterns = {
-          ".git",
-          "_darcs",
-          ".hg",
-          ".bzr",
-          ".svn",
-          "Makefile",
-          "package.json",
-          "pyproject.toml",
-          "Pipfile",
-        },
-      })
-    end,
-  },
-
   { "tpope/vim-obsession" },
 }

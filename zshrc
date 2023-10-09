@@ -74,3 +74,5 @@ if [[ $(uname -a | grep Darwin) ]]; then
   export GPG_TTY=$TTY
   export SSH_AUTH_SOCK=/Users/alexp/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 fi
+
+source "$HOME/.profile"

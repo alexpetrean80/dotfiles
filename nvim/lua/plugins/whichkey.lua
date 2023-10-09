@@ -21,7 +21,7 @@ local normal_maps = {
   h = {
     name = "Harpoon",
     a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add file" },
-    t = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Toggle menu" },
+    h = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Toggle menu" },
     n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Next file" },
     p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Previous file" },
   },

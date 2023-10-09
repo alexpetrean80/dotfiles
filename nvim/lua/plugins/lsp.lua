@@ -50,7 +50,7 @@ return {
         docker = { hadolint },
         gitcommit = { gitlint },
         go = {
-          golangci_lint,
+          -- golangci_lint,
           gofmt,
           goimports,
         },
