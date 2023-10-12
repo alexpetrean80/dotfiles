@@ -17,6 +17,7 @@ return {
         "dockerls",
         "docker_compose_language_service",
         "gopls",
+        "helm-ls",
         "html",
         "jsonls",
         "lua_ls",
@@ -25,7 +26,6 @@ return {
         "sqlls",
         "taplo",
         "tsserver",
-        "yamlls",
         -- formatters
         "goimports",
         "isort",
@@ -42,7 +42,7 @@ return {
         "flake8",
         "black",
         "isort",
-        "yamllint",
+        -- "yamllint",
         "golangci-lint",
         "gomodifytags"
       },
