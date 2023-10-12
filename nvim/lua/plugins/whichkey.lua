@@ -1,7 +1,7 @@
 local normal_maps = {
-    [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
-    ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
-  a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action"},
+  [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
+  ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
+  a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
   b = {
     name = "Buffers",
     n = { "<cmd>bnext<CR>", "Next" },
@@ -9,7 +9,7 @@ local normal_maps = {
     d = { "<cmd>bd<CR>", "Delete" },
   },
   e = { "<cmd>lua MiniFiles.open()<CR>", "Explorer" },
-  f = {"<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format"},
+  f = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format" },
   h = {
     name = "Harpoon",
     a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add file" },
@@ -18,7 +18,7 @@ local normal_maps = {
     p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Previous file" },
   },
   g = { "<cmd>Neogit<CR>", "Neogit" },
-  r = {":IncRename ", "Rename"},
+  r = { ":IncRename ", "Rename" },
   R = {
     name = "Refactoring",
     b = { "<cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract block" },

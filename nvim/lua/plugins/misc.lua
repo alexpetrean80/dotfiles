@@ -24,5 +24,4 @@ return {
       require("mini.pairs").setup()
     end,
   },
-  { "tpope/vim-obsession" },
 }

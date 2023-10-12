@@ -11,6 +11,7 @@ return {
     name = "catppuccin",
     config = function()
       require("catppuccin").setup({
+        flavour = "mocha",
         integrations = {
           alpha = true,
           gitsigns = true,
