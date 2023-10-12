@@ -34,7 +34,6 @@ return {
         "clang-format",
         "hadolint",
         "gitlint",
-        "golangci-lint",
         "goimports",
         "eslint",
         "jq",

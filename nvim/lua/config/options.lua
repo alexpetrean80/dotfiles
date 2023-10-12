@@ -118,4 +118,4 @@ vim.diagnostic.config({
 opt.relativenumber = false
 
 opt.laststatus = 2
-opt.statusline = "%f %y %m %r %h %w %c %l/%L %p%% %=%{&fileencoding?&fileencoding:&encoding} %{&bomb?\"BOM\":''} %3.3n %3.3v"
+opt.statusline = "%f %m %r %h %w%= %c %l/%L %p%% %{&fileencoding?&fileencoding:&encoding}%{&bomb?\"BOM\":''} %y"

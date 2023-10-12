@@ -1,4 +1,6 @@
 local normal_maps = {
+    [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
+    ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
   a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action"},
   b = {
     name = "Buffers",
@@ -31,8 +33,6 @@ local normal_maps = {
       "<cmd>lua require('telescope.builtin').diagnostics(require('telescope.themes').get_ivy({}))<CR>",
       "File Diagnostics",
     },
-    f = { "<cmd>Telescope find_files<CR>", "Find file" },
-    g = { "<cmd>Telescope live_grep<CR>", "Grep" },
     h = { "<cmd>Telescope help_tags<CR>", "Help" },
     i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
     r = { "<cmd>Telescope lsp_references<CR>", "References" },
