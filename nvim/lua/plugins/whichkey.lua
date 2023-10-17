@@ -18,7 +18,6 @@ local normal_maps = {
     n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Next file" },
     p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Previous file" },
   },
-  g = { "<cmd>Neogit<CR>", "Neogit" },
   r = { ":IncRename ", "Rename" },
   R = {
     name = "Refactoring",

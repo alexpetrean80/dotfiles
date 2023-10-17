@@ -1,4 +1,3 @@
-
 if [[ -e /proc/version ]]; then
   if [[ $(grep microsoft /proc/version) ]]; then
     unset DISPLAY
@@ -39,6 +38,13 @@ alias dctest="docker compose run test pytest"
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
+
+export cdp () {
+  repos=$(fd -t d -g -H  "\.git" $HOME/Repos -x echo {} | sed  's/\.git//')
+
+  repo=$(echo "$repos" | fzf)
+  cd "$repo"
+}
 
 export svenv() {
   source "$HOME/.venvs/$1/bin/activate"
