@@ -36,11 +36,11 @@ opt.lazyredraw = true
 opt.list = true
 
 opt.listchars = {
-  tab = "┊ ",
-  trail = "·",
-  extends = "»",
-  precedes = "«",
-  nbsp = "×",
+	tab = "┊ ",
+	trail = "·",
+	extends = "»",
+	precedes = "«",
+	nbsp = "×",
 }
 
 opt.cmdheight = 0
@@ -80,42 +80,47 @@ opt.foldmethod = "marker"
 opt.foldlevel = 99
 
 local disabled_built_ins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "tutor",
-  "rplugin",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
+	"2html_plugin",
+	"getscript",
+	"getscriptPlugin",
+	"gzip",
+	"logipat",
+	"matchit",
+	"tar",
+	"tarPlugin",
+	"rrhelper",
+	"spellfile_plugin",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
+	"tutor",
+	"rplugin",
+	"synmenu",
+	"optwin",
+	"compiler",
+	"bugreport",
+	"ftplugin",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-  g["loaded_" .. plugin] = 1
+	g["loaded_" .. plugin] = 1
 end
 
-cmd.colorscheme('catppuccin')
+cmd.colorscheme("catppuccin")
 
 vim.diagnostic.config({
-  underline = true,
-  virtual_text = false,
-  signs = true,
+	underline = true,
+	virtual_text = false,
+	signs = true,
 })
 
 opt.relativenumber = false
 
 opt.laststatus = 2
 opt.statusline = "%f %m %r %h %w%= %c %l/%L %p%% %{&fileencoding?&fileencoding:&encoding}%{&bomb?\"BOM\":''} %y"
+
+g.netrw_banner = 0
+g.netrw_keepdir = 0
+g.netrw_liststyle = 0
+g.netrw_localcopydircmd = "cp -r"

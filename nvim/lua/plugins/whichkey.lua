@@ -9,7 +9,7 @@ local normal_maps = {
     p = { "<cmd>bprevious<CR>", "Previous" },
     d = { "<cmd>bd<CR>", "Delete" },
   },
-  e = { "<cmd>lua MiniFiles.open()<CR>", "Explorer" },
+  e = { "<cmd>Ex<CR><CR>", "Explorer" },
   f = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format" },
   h = {
     name = "Harpoon",

@@ -42,7 +42,7 @@ return {
 				context_commentstring = { enable = true, enable_autocmd = false },
 				refactor = {
 					highlight_definitions = { enable = true },
-					highlight_current_scope = { enable = false },
+					highlight_current_scope = { enable = true },
 				},
 				rainbow = {
 					enable = true,
