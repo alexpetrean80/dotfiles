@@ -5,6 +5,7 @@ local normal_maps = {
   b = {
     name = "Buffers",
     n = { "<cmd>bnext<CR>", "Next" },
+    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
     p = { "<cmd>bprevious<CR>", "Previous" },
     d = { "<cmd>bd<CR>", "Delete" },
   },
@@ -25,18 +26,14 @@ local normal_maps = {
     B = { "<cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file" },
     i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline variable" },
   },
-  t = {
-    name = "Telescope",
-    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-    d = { "<cmd>Telescope lsp_definitions<CR>", "Definitions" },
-    D = {
-      "<cmd>lua require('telescope.builtin').diagnostics(require('telescope.themes').get_ivy({}))<CR>",
-      "File Diagnostics",
-    },
-    h = { "<cmd>Telescope help_tags<CR>", "Help" },
-    i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
-    r = { "<cmd>Telescope lsp_references<CR>", "References" },
-    t = { "<cmd>Telescope lsp_type_definitions<CR>", "Type definitions" },
+  l = {
+    name = "LSP",
+    e = { "<cmd>Trouble document_diagnostics<CR>", "Document diagnostics" },
+    E = { "<cmd>Trouble workspace_diagnostics<CR>", "Workspace diagnostics" },
+    q = { "<cmd>Trouble quickfix<CR>", "Quickfix" },
+    r = { "<cmd>Trouble lsp_references<CR>", "References" },
+    d = { "<cmd>Trouble lsp_definitions<CR>", "Definitions" },
+    t = { "<cmd>Trouble lsp_type_definitions<CR>", "Type definitions" },
   },
 }
 

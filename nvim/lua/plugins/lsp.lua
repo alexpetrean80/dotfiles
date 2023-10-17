@@ -15,6 +15,27 @@ return {
         lsp.default_keymaps({ buffer = bufnr })
       end)
 
+      require("lspconfig").lua_ls.setup({
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = { "vim" },
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          -- Do not send telemetry data containing a randomized but unique identifier
+          telemetry = {
+            enable = false,
+          },
+        },
+      })
+
       lsp.setup()
     end,
   },
@@ -27,4 +48,13 @@ return {
     end,
   },
   { "towolf/vim-helm" },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
 }

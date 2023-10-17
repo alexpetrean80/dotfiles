@@ -72,9 +72,17 @@ fi
 
 if [[ $(uname -a | grep Darwin) ]]; then
   export GPG_TTY=$TTY
-  export SSH_AUTH_SOCK=/Users/alexp/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+  export TELEPORT_HOME="$HOME/.tsh"
 fi
 
 source "$HOME/.profile"
 
 eval "$(fnm env --use-on-cd)"
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alexp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alexp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alexp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alexp/google-cloud-sdk/completion.zsh.inc'; fi

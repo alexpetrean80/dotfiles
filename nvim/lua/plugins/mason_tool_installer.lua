@@ -34,6 +34,7 @@ return {
         "prettier",
         "shfmt",
         -- linters
+        "editorconfig-checker",
         "luacheck",
         "hadolint",
         "gitlint",
