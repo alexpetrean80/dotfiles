@@ -39,15 +39,29 @@ alias dctest="docker compose run test pytest"
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
+# move to a project directory
 export cdp () {
-  repos=$(fd -t d -g -H  "\.git" $HOME/Repos -x echo {} | sed  's/\.git//')
+  # fd is way faster so it will attempt to use it if available
+  if [[ $(command -v fd) ]]; then
+    repos=$(fd -t d -g -H  "\.git" $HOME/Repos | sed  's/\/\.git\///')
+  else
+    repos=$(find $HOME/Repos -type d -name ".git" -exec echo {} \;)
+  fi
 
   repo=$(echo "$repos" | fzf)
   cd "$repo"
 }
 
-export svenv() {
-  source "$HOME/.venvs/$1/bin/activate"
+# activate a python virtualenv from anywhere
+export svv() {
+  if [[ $(command -v fd) ]]; then
+    venvs=$(fd -t d -g -H "bin" $HOME/.venvs | sed 's/\/bin//')
+  else
+    venvs=$(find $HOME/.venvs -type d -name "bin" -exec echo {} \;)
+  fi
+
+  venv=$(echo "$venvs" | fzf)
+  source "$venv/bin/activate"
 }
 
 try_add_to_path() {
