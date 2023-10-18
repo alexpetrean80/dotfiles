@@ -7,12 +7,6 @@ return {
 			vim.g.gitblame_enabled = 0
 		end,
 	},
-	{
-		"smjonas/inc-rename.nvim",
-		config = function()
-			require("inc_rename").setup()
-		end,
-	},
 	{ "machakann/vim-sandwich" },
 	{
 		"echasnovski/mini.comment",

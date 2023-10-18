@@ -35,7 +35,12 @@ return {
       lsp.setup()
     end,
   },
-
+	{
+		"smjonas/inc-rename.nvim",
+		config = function()
+			require("inc_rename").setup()
+		end,
+	},
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
