@@ -1,11 +1,11 @@
 local normal_maps = {
-  [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
-  ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
+  [" "] = { "<cmd>FzfLua files<CR>" ,"Find file"},
+  ["/"] = {"<cmd>FzfLua grep_cword<CR>", "Grep"},
   a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
   b = {
     name = "Buffers",
     n = { "<cmd>bnext<CR>", "Next" },
-    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
+    b = { "<cmd>FzfLua buffers<CR>", "Buffers" },
     p = { "<cmd>bprevious<CR>", "Previous" },
     d = { "<cmd>bd<CR>", "Delete" },
   },
