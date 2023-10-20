@@ -39,18 +39,6 @@ alias dctest="docker compose run test pytest"
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
-# move to a project directory
-export cdp () {
-  # fd is way faster so it will attempt to use it if available
-  if [[ $(command -v fd) ]]; then
-    repos=$(fd -t d -g -H  "\.git" $HOME/Repos | sed  's/\/\.git\///')
-  else
-    repos=$(find $HOME/Repos -type d -name ".git" -exec echo {} \;)
-  fi
-
-  repo=$(echo "$repos" | fzf)
-  cd "$repo"
-}
 
 # activate a python virtualenv from anywhere
 export svv() {

@@ -39,6 +39,7 @@ return {
         "ocamllsp",
         "prettier",
         "pyright",
+        "rust-analyzer",
         "shellcheck",
         "shfmt",
         "sqlls",
