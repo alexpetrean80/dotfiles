@@ -1,5 +1,5 @@
 local normal_maps = {
-  [" "] = { "<cmd>FzfLua files<CR>" ,"Find file"},
+  [" "] = { "<cmd>FzfLua git_files<CR>" ,"Find file"},
   ["/"] = {"<cmd>FzfLua grep_project<CR>", "Grep"},
   a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
   b = {
