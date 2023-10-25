@@ -1,5 +1,5 @@
 # Sets user-defined palette
-palette = "catppuccin_macchiato"
+palette = "catppuccin_mocha"
 
 [character]
 # Note the use of Catppuccin color 'maroon'
@@ -259,3 +259,15 @@ symbol = " "
 
 [scala]
 symbol = " "
+
+
+[kubernetes]
+format = '[󱃾 $context](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'.*/openshift-cluster/.*' = 'openshift'
+'gke_.*_(?P<var_cluster>[\w-]+)' = 'gke-$var_cluster'
+[kubernetes.user_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'root/.*' = 'root'
