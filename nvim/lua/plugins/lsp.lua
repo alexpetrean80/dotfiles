@@ -41,13 +41,13 @@ return {
 			require("inc_rename").setup()
 		end,
 	},
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function()
-      require("lsp_signature").on_attach({})
-    end,
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("lsp_signature").on_attach({})
+  --   end,
+  -- },
   { "towolf/vim-helm" },
   {
     "folke/trouble.nvim",

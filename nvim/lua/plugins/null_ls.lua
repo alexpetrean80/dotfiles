@@ -47,6 +47,7 @@ return {
           prefer_local = "node_modules/.bin/prettier",
         }),
         code_actions.gomodifytags,
+        code_actions.impl,
         code_actions.refactoring,
         code_actions.shellcheck,
       },

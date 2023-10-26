@@ -1,30 +1,39 @@
+local code_action = function()
+  vim.lsp.buf.code_action()
+end
+
+local fzf_file = function()
+  require("telescope.builtin").current_buffer_fuzzy_find({ previewer = false })
+end
+
+local format = function()
+  vim.lsp.buf.format({ async = true })
+end
+
+local refactoring = function()
+  require("refactoring").select_refactor()
+end
+
+local file_tree = function()
+  MiniFiles.open()
+end
+
 local normal_maps = {
-  [" "] = { "<cmd>FzfLua git_files<CR>" ,"Find file"},
-  ["/"] = {"<cmd>FzfLua grep_project<CR>", "Grep"},
-  a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+  [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
+  ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
+  a = { code_action, "Code action" },
   b = {
     name = "Buffers",
     n = { "<cmd>bnext<CR>", "Next" },
-    b = { "<cmd>FzfLua buffers<CR>", "Buffers" },
+    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
     p = { "<cmd>bprevious<CR>", "Previous" },
     d = { "<cmd>bd<CR>", "Delete" },
   },
-  e = { "<cmd>Ex<CR><CR>", "Explorer" },
-  f = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format" },
-  h = {
-    name = "Harpoon",
-    a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add file" },
-    h = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Toggle menu" },
-    n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Next file" },
-    p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Previous file" },
-  },
+  e = { file_tree, "Explorer" },
+  f = { format, "Format" },
+  F = { fzf_file, "Fuzzy find" },
   r = { ":IncRename ", "Rename" },
-  R = {
-    name = "Refactoring",
-    b = { "<cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract block" },
-    B = { "<cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file" },
-    i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline variable" },
-  },
+  R = { refactoring, "Refactoring" },
   l = {
     name = "LSP",
     e = { "<cmd>Trouble document_diagnostics<CR>", "Document diagnostics" },
@@ -46,16 +55,7 @@ local normal_opts = {
 }
 
 local visual_maps = {
-  R = {
-    name = "Refactoring",
-    f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract function" },
-    F = {
-      "<Esc><cmd>lua require('refactoring').refactor('Extract Function To File')<CR>",
-      "Extract function to file",
-    },
-    v = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract variable" },
-    i = { "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline variable" },
-  },
+  R = { refactoring, "Refactoring" },
 }
 
 local visual_opts = {

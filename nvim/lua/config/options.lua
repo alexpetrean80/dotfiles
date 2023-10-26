@@ -124,3 +124,4 @@ g.netrw_banner = 0
 g.netrw_keepdir = 0
 g.netrw_liststyle = 0
 g.netrw_localcopydircmd = "cp -r"
+opt.lazyredraw = false
