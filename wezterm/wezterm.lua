@@ -20,7 +20,7 @@ local scheme_for_appearance = function(appearance)
 end
 
 return {
-  font = wezterm.font("Delugia"),
+  font = wezterm.font("JetBrainsMono Nerd Font"),
   font_size = 16,
   color_scheme = scheme_for_appearance(get_appearance()),
   tab_bar_at_bottom = true,
