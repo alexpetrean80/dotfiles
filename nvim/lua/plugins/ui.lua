@@ -4,7 +4,11 @@ return {
     name = "catppuccin",
     config = function()
       require("catppuccin").setup({
-        flavour = "mocha",
+        -- flavour = "macchiato",
+        background = {
+          light = "latte",
+          dark = "macchiato",
+        },
         integrations = {
           alpha = true,
           gitsigns = true,
@@ -42,7 +46,7 @@ return {
             { "mode", separator = { left = "" }, right_padding = 2 },
           },
           lualine_b = { "filename", "branch" },
-          lualine_c = { "fileformat" },
+          lualine_c = {},
           lualine_x = {},
           lualine_y = { "filetype", "progress" },
           lualine_z = {
