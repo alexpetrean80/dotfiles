@@ -19,7 +19,7 @@ local file_tree = function()
 end
 
 local normal_maps = {
-  [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
+  [" "] = { "<cmd>Telescope git_files<CR>", "Find file" },
   ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
   a = { code_action, "Code action" },
   b = {
