@@ -19,22 +19,27 @@ source "$HOME/.antigen/antigen.zsh"
 
 antigen use oh-my-zsh
 
+antigen bundle brew
 antigen bundle fzf
+antigen bundle git
+antigen bundle gh
+antigen bundle terraform
 antigen bundle zsh-interactive-cd
 antigen bundle command-not-found
 
 antigen apply
 
 alias ls="exa -lgh"
+
 alias lzg="lazygit --use-config-file="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/mocha/rosewater.yml""
+
+# docker compose aliases
 alias dc="docker compose"
 alias dcu="docker compose up"
 alias dce="docker compose exec"
-alias dcb="docker compose build --ssh default=$HOME/.ssh/id_rsa"
+alias dcb="docker compose build"
 alias dcd="docker compose down"
 alias dcr="docker compose run"
-alias dctest="docker compose run test pytest"
-
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
