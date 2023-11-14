@@ -260,7 +260,6 @@ symbol = " "
 [scala]
 symbol = " "
 
-
 [kubernetes]
 format = '[󱃾 $context](dimmed green) '
 disabled = false

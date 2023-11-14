@@ -8,16 +8,23 @@ return {
     end,
   },
   { "machakann/vim-sandwich" },
+  -- {
+  --   "echasnovski/mini.comment",
+  --   version = "*",
+  --   config = function()
+  --     require("mini.comment").setup({
+  --       pre_hook = function()
+  --         return require("ts_context_commentstring.internal").calculate_commentstring()
+  --       end,
+  --     })
+  --   end,
+  -- },
   {
-    "echasnovski/mini.comment",
-    version = "*",
-    config = function()
-      require("mini.comment").setup({
-        pre_hook = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring()
-        end,
-      })
-    end,
+    "numToStr/Comment.nvim",
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
   },
   {
     "echasnovski/mini.pairs",
