@@ -66,6 +66,12 @@ return {
             ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
             ["vim.lsp.util.stylize_markdown"] = true,
             ["cmp.entry.get_documentation"] = true,
+        integrations = {
+          barbecue = {
+            dim_dirname = true, -- directory name is dimmed by default
+            bold_basename = true,
+            dim_context = false,
+            alt_background = false,
           },
         },
         presets = {
@@ -74,8 +80,49 @@ return {
           lsp_doc_border = true,
           bottom_search = false,
           long_message_to_split = true,
+          cmp = true,
+          gitsigns = true,
+          indent_blankline = {
+            enabled = true,
+            scope_color = "lavender",
+            colored_indent_levels = false,
+          },
+          nvimtree = false,
+          treesitter = true,
+          notify = false,
+          mini = {
+            enabled = true,
+            indentscope_color = "",
+          },
+          noice = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+              errors = { "italic" },
+              hints = { "italic" },
+              warnings = { "italic" },
+              information = { "italic" },
+            },
+            underlines = {
+              errors = { "underline" },
+              hints = { "underline" },
+              warnings = { "underline" },
+              information = { "underline" },
+            },
+            inlay_hints = {
+              background = true,
+            },
+          },
+          ts_rainbow2 = true,
+          telescope = true,
+          lsp_trouble = true,
+          sandwich = true,
+          which_key = true,
+          -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
+      -- setup must be called before loading
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
   {
