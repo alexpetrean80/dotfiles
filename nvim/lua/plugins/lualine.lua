@@ -32,15 +32,15 @@ return {
 
     -- colors from github.com/marko-ceroavac/material.nvim darker
     local colors = {
-      yellow = "#FFCB6B",
-      cyan = "#89DDFF",
-      darkblue = "#6E98EB",
-      green = "#C3E88D",
-      orange = "#F78C6C",
-      violet = "#C792EA",
-      magenta = "#FF9CAC",
-      blue = "#82AAFF",
-      red = "#F07178",
+      yellow = "#f9e2af",
+      teal = "#94e2d5",
+      sky = "#89dceb",
+      green = "#a6e3a1",
+      peach = "#fab387",
+      mauve = "#cba6f7",
+      rosewater = "#f5e0dc",
+      blue = "#89b4fa",
+      red = "#f38ba8",
     }
 
     local conditions = {
@@ -63,7 +63,7 @@ return {
         -- Disable sections and component separators
         component_separators = "",
         section_separators = "",
-        theme = "material",
+        theme = "catppuccin",
       },
       sections = {
         -- these are to remove the defaults
@@ -109,19 +109,19 @@ return {
           v = colors.blue,
           [""] = colors.blue,
           V = colors.blue,
-          c = colors.magenta,
+          c = colors.rosewater,
           no = colors.red,
-          s = colors.orange,
-          S = colors.orange,
-          [""] = colors.orange,
+          s = colors.peach,
+          S = colors.peach,
+          [""] = colors.peach,
           ic = colors.yellow,
-          R = colors.violet,
-          Rv = colors.violet,
+          R = colors.mauve,
+          Rv = colors.mauve,
           cv = colors.red,
           ce = colors.red,
-          r = colors.cyan,
-          rm = colors.cyan,
-          ["r?"] = colors.cyan,
+          r = colors.teal,
+          rm = colors.teal,
+          ["r?"] = colors.teal,
           ["!"] = colors.red,
           t = colors.red,
         }
@@ -136,7 +136,7 @@ return {
       symbols = { added = " ", modified = "󰝤 ", removed = " " },
       diff_color = {
         added = { fg = colors.green },
-        modified = { fg = colors.orange },
+        modified = { fg = colors.peach },
         removed = { fg = colors.red },
       },
       cond = conditions.hide_in_width,
@@ -144,7 +144,7 @@ return {
     ins_left({
       "branch",
       icon = "",
-      color = { fg = colors.violet, gui = "bold" },
+      color = { fg = colors.mauve, gui = "bold" },
     })
 
     ins_left({
@@ -154,7 +154,7 @@ return {
       diagnostics_color = {
         color_error = { fg = colors.red },
         color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
+        color_info = { fg = colors.teal },
       },
     })
 
@@ -172,7 +172,7 @@ return {
       file_status = true,
       newfile_status = true,
       path = 1,
-      color = { fg = colors.magenta, gui = "bold" },
+      color = { fg = colors.mauve, gui = "bold" },
     })
     ins_left({
       -- filesize component
@@ -185,7 +185,7 @@ return {
       -- Lsp server name .
       get_lsp,
       icon = " ",
-      color = { fg = colors.cyan, gui = "bold" },
+      color = { fg = colors.teal, gui = "bold" },
     })
 
     -- Add components to right sections
