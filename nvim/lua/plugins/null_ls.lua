@@ -42,7 +42,7 @@ return {
         diagnostics.gitlint,
         diagnostics.gdlint,
         diagnostics.golangci_lint,
-        diagnostics.gospel,
+        -- diagnostics.gospel,
         code_actions.eslint.with({
           prefer_local = "node_modules/.bin/prettier",
         }),
