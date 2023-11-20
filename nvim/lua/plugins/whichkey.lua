@@ -74,7 +74,10 @@ local config = function()
   wc.register(normal_maps, normal_opts)
   wc.register(visual_maps, visual_opts)
 
-  wc.setup()
+  wc.setup({
+    window = { margin = { 1, 0, 0, 0.8 }, border = "single" },
+    layout = { height = { min = 4, max = 150 }, align = "left" },
+  })
 end
 
 return {
