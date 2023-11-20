@@ -116,13 +116,17 @@ vim.diagnostic.config({
 opt.relativenumber = false
 
 opt.laststatus = 2
-opt.statusline = "%f %m %r %h %w%= %c %l/%L %p%% %{&fileencoding?&fileencoding:&encoding}%{&bomb?\"BOM\":''} %y"
 
+local function get_statusline()
+
+  return
+  "%{mode()} %f %m %r %h %w%= %c %l/%L  %p%% %{&fileencoding?&fileencoding:&encoding}%{&bomb?\"BOM\":''} %y"
+end
+opt.statusline = get_statusline()
 g.netrw_banner = 0
 g.netrw_keepdir = 0
 g.netrw_liststyle = 0
 g.netrw_localcopydircmd = "cp -r"
 opt.lazyredraw = false
 
-vim.g.material_style = "darker"
-vim.cmd("colorscheme material")
+vim.cmd.colorscheme("catppuccin")
