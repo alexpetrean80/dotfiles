@@ -13,51 +13,43 @@ return {
     },
   },
   {
-    "marko-cerovac/material.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
     config = function()
-      require("material").setup({
-        contrast = {
-          non_current_windows = true, -- Enable contrasted background for non-current windows
+      require("catppuccin").setup({
+        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        background = {         -- :h background
+          light = "latte",
+          dark = "macchiato",
         },
-        -- styles = {               -- Give comments style such as bold, italic, underline etc.
-        --   comments = { [[ italic = true ]] },
-        --   strings = { [[ bold = true ]] },
-        --   keywords = { [[ underline = true ]] },
-        --   functions = { [[ bold = true, undercurl = true ]] },
-        -- },
-        plugins = { -- Uncomment the plugins that you use to highlight them
-          "mini",
-          "noice",
-          "nvim-cmp",
-          "nvim-web-devicons",
-          "telescope",
-          "trouble",
-          "which-key",
+        transparent_background = false, -- disables setting the background color.
+        show_end_of_buffer = false,     -- shows the '~' characters after the end of buffers
+        term_colors = false,            -- sets terminal colors (e.g. `g:terminal_color_0`)
+        dim_inactive = {
+          enabled = false,              -- dims the background color of inactive window
+          shade = "dark",
+          percentage = 0.15,            -- percentage of the shade to apply to the inactive window
         },
-
-        disable = {
-          colored_cursor = true, -- Disable the colored cursor
-          borders = true,   -- Disable borders between verticaly split windows
-          background = false, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-          term_colors = false, -- Prevent the theme from setting terminal colors
-          eob_lines = false, -- Hide the end-of-buffer lines
+        no_italic = false,              -- Force no italic
+        no_bold = false,                -- Force no bold
+        no_underline = false,           -- Force no underline
+        styles = {                      -- Handles the styles of general hi groups (see `:h highlight-args`):
+          comments = { "italic" },      -- Change the style of comments
+          conditionals = { "italic" },
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
         },
-
-        high_visibility = {
-          lighter = false, -- Enable higher contrast text for lighter style
-          darker = false, -- Enable higher contrast text for darker style
-        },
-
-        lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
-
-        async_loading = true,  -- Load parts of the theme asyncronously for faster startup (turned on by default)
-
-        custom_colors = nil,   -- If you want to override the default colors, set this to a function
-
+        color_overrides = {},
         custom_highlights = {},
-      })
-    end,
-  },
 
   {
     "folke/noice.nvim",
