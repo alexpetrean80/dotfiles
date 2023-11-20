@@ -57,6 +57,11 @@ export svv() {
   source "$venv/bin/activate"
 }
 
+export cdp() {
+  proj_dir=$(fd -t d -g -H ".git" $HOME/Repos | sed 's/\/.git//' | fzf)
+  cd $proj_dir || exit
+}
+
 try_add_to_path() {
 	dir=$1
 	if [[ -d $dir ]]; then
