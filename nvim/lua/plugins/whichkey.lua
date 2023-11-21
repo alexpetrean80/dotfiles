@@ -19,7 +19,7 @@ local file_tree = function()
 end
 
 local normal_maps = {
-  [" "] = { "<cmd>Telescope git_files<CR>", "Find file" },
+  [" "] = { "<cmd>Telescope find_files<CR>", "Find file" },
   ["/"] = { "<cmd>Telescope live_grep<CR>", "Grep" },
   a = { code_action, "Code action" },
   b = {
@@ -32,6 +32,11 @@ local normal_maps = {
   e = { file_tree, "Explorer" },
   f = { format, "Format" },
   F = { fzf_file, "Fuzzy find" },
+  g = {
+    name = "Git",
+    b = { "<cmd>Telescope git_branches<CR>", "Branches" },
+    f = { "<cmd>Telescope git_files<CR>", "Files" },
+  },
   r = { ":IncRename ", "Rename" },
   R = { refactoring, "Refactoring" },
   l = {
