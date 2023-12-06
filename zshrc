@@ -21,9 +21,6 @@ antigen use oh-my-zsh
 
 antigen bundle brew
 antigen bundle fzf
-antigen bundle git
-antigen bundle gh
-antigen bundle terraform
 antigen bundle zsh-interactive-cd
 antigen bundle command-not-found
 
@@ -57,10 +54,6 @@ export svv() {
   source "$venv/bin/activate"
 }
 
-export cdp() {
-  proj_dir=$(fd -t d -g -H ".git" $HOME/Repos | sed 's/\/.git//' | fzf)
-  cd $proj_dir || exit
-}
 
 try_add_to_path() {
 	dir=$1
@@ -90,6 +83,7 @@ fi
 
 if [[ $(uname -a | grep Darwin) ]]; then
   export GPG_TTY=$TTY
+  alias rm="/opt/homebrew/bin/grm"
   export TELEPORT_HOME="$HOME/.tsh"
 fi
 
