@@ -21,4 +21,6 @@ keymap.set("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap.set("n", "<leader>\\", "<cmd>vsp<CR>", { silent = true, noremap = true, nowait = true, desc = "Vertical split" })
 keymap.set("n", "<leader>-", "<cmd>sp<CR>", { silent = true, noremap = true, nowait = true, desc = "Horizontal split" })
 
+keymap.set("n", "gd", "<cmd>vsplit<CR><cmd>lua vim.lsp.buf.definition()<CR>", {silent= true, noremap = true, nowait = true, desc = "Go to definition" })
+
 keymap.set("n", "du", "<cmd>diffupdate<CR>", opts)
