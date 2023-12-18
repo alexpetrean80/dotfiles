@@ -26,7 +26,7 @@ antigen bundle command-not-found
 
 antigen apply
 
-alias ls="exa -lgh"
+alias ls="eza -lgh"
 
 alias lzg="lazygit --use-config-file="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/mocha/rosewater.yml""
 
