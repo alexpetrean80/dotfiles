@@ -61,10 +61,13 @@ try_add_to_path() {
 		export PATH="$dir:$PATH"
 	fi
 }
+
 try_add_to_path "$HOME/.local/share/fnm"
 try_add_to_path "$HOME/.cargo/bin"
 try_add_to_path "$HOME/go/bin"
 try_add_to_path "$HOME/.local/bin"
+try_add_to_path "$HOME/.local/share/bob/nightly/nvim-linux64/bin/"
+try_add_to_path "${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 if [[ ! -d "$HOME/.npm-global" ]]; then
   mkdir "$HOME/.npm-global"
@@ -87,11 +90,12 @@ if [[ $(uname -a | grep Darwin) ]]; then
   export TELEPORT_HOME="$HOME/.tsh"
 fi
 
+
 source "$HOME/.profile"
 
 eval "$(fnm env --use-on-cd)"
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/alexp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alexp/google-cloud-sdk/path.zsh.inc'; fi
