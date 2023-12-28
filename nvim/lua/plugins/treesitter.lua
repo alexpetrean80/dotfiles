@@ -33,9 +33,10 @@ return {
     },
     config = function()
       require("nvim-treesitter.configs").setup({
-        -- A list of parser names, or "all"
         ensure_installed = "all",
         ignore_install = { "hoon" },
+        sync_install = false,
+        auto_install = true,
         highlight = { enable = true, use_languagetree = true },
         indent = { enable = true },
         autotag = { enable = true },
@@ -64,6 +65,10 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+    },
+    keys = {
+      { "<leader>R", "lua require('refactoring').select_refactor()", mode = "v", desc = "Refactoring" },
+      { "<leader>R", "lua require('refactoring').select_refactor()", mode = "n", desc = "Refactoring" },
     },
     config = function()
       require("refactoring").setup({

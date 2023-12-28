@@ -12,54 +12,42 @@ return {
       local lsp_zero = require("lsp-zero").preset({})
 
       lsp_zero.on_attach(function(_, bufnr)
-        lsp_zero.default_keymaps({ buffer = bufnr })
+        lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = false })
       end)
 
       local lsp = require("lspconfig")
       local lua_opts = lsp_zero.nvim_lua_ls()
       lsp.lua_ls.setup(lua_opts)
 
-      -- local configs = require("lspconfig.configs")
-      --
-      -- if not configs.snyk then
-      --   configs.snyk = {
-      --     default_config = {
-      --       -- pass cmd as .local/bin/snyk-lsp in my $HOME
-      --       cmd = { "snyk-ls" },
-      --       root_dir = function(name)
-      --         return lsp.util.find_git_ancestor(name) or vim.loop.os_homedir()
-      --       end,
-      --       init_options = {
-      --         activateSnykCode = "true",
-      --       },
-      --     },
-      --   }
-      -- end
-      --
-      -- lsp.snyk.setup({
-      --   on_attach = lsp_zero.on_attach,
-      -- })
-
       lsp_zero.setup()
     end,
   },
   {
     "smjonas/inc-rename.nvim",
+    keys = { { "<leader>r", ":IncRename ", desc = "Rename" } },
     config = function()
       require("inc_rename").setup()
     end,
   },
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").on_attach({})
-  --   end,
-  -- },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function()
+      require("lsp_signature").on_attach({})
+    end,
+  },
   { "towolf/vim-helm" },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "<leader>le", "<cmd>Trouble document_diagnostics<CR>",  desc = "Document diagnostics" },
+      { "<leader>lE", "<cmd>Trouble workspace_diagnostics<CR>", desc = "Workspace diagnostics" },
+      { "<leader>lq", "<cmd>Trouble quickfix<CR>",              desc = "Quickfix" },
+      { "<leader>lr", "<cmd>Trouble lsp_references<CR>",        desc = "References" },
+      { "<leader>ld", "<cmd>Trouble lsp_definitions<CR>",       desc = "Definitions" },
+      { "<leader>lt", "<cmd>Trouble lsp_type_definitions<CR>",  desc = "Type definitions" },
+    },
     opts = {},
   },
 }
