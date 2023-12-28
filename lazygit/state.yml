@@ -4,3 +4,4 @@ recentrepos:
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
+ignorewhitespaceindiffview: false
