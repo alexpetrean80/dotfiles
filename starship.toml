@@ -271,3 +271,7 @@ disabled = false
 [kubernetes.user_aliases]
 'dev.local.cluster.k8s' = 'dev'
 'root/.*' = 'root'
+
+[direnv]
+disabled = false
+
