@@ -102,3 +102,7 @@ if [ -f '/Users/alexp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alexp/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/alexp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alexp/google-cloud-sdk/completion.zsh.inc'; fi
+
+if [[ $(command -v direnv) ]]; then
+ eval "$(direnv hook zsh)"
+fi
