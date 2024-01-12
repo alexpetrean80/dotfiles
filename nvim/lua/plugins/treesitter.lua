@@ -67,8 +67,8 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     keys = {
-      { "<leader>R", "lua require('refactoring').select_refactor()", mode = "v", desc = "Refactoring" },
-      { "<leader>R", "lua require('refactoring').select_refactor()", mode = "n", desc = "Refactoring" },
+      { "<leader>R", "<cmd>lua require('refactoring').select_refactor()<CR>", mode = "v", desc = "Refactoring" },
+      { "<leader>R", "<cmd>lua require('refactoring').select_refactor()<CR>", mode = "n", desc = "Refactoring" },
     },
     config = function()
       require("refactoring").setup({
