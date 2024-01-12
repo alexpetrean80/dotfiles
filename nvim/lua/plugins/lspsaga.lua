@@ -1,5 +1,10 @@
 return {
   "nvimdev/lspsaga.nvim",
+  event = "LspAttach",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter", -- optional
+    "nvim-tree/nvim-web-devicons",   -- optional
+  },
   config = function()
     require("lspsaga").setup({
       breadcrumbs = {
@@ -8,12 +13,13 @@ return {
       diagnostic = {
         diagnostic_only_current = true,
       },
+      implement = {
+        enable = true,
+        sign = true,
+        virtual_text = true,
+      },
     })
   end,
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter", -- optional
-    "nvim-tree/nvim-web-devicons",   -- optional
-  },
   keys = {
     -- diagnostics
     { "<leader>ldn", "<cmd>Lspsaga diagnostic_jump_next<CR>",       desc = "Next diagnostic" },
@@ -35,5 +41,9 @@ return {
     { "<leader>lfd", "<cmd>Lspsaga finder def<CR>",                 desc = "Find definitions" },
     { "<leader>lfr", "<cmd>Lspsaga finder ref<CR>",                 desc = "Find references" },
     { "<leader>lfi", "<cmd>Lspsaga finder imp<CR>",                 desc = "Find implementations" },
+
+    -- floating term
+    { "<leader>ltt", "<cmd>Lspsaga term_toggle<CR>",                    desc = "Toggle" },
+    { "<leader>ltg", "<cmd>Lspsaga term_toggle lazygit<CR>",            desc = "Lazygit" },
   },
 }
