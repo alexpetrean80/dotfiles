@@ -13,6 +13,7 @@ return {
         d = { name = "Diagnostics" },
         p = { name = "Peek" },
         f = { name = "Find" },
+        t = { name = "Terminal" },
       },
     }, {
       mode = "n",
