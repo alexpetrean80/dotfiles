@@ -7,6 +7,7 @@ return {
 
     wc.register({
       b = { name = "Buffers" },
+      d = { name = "Debugger" },
       l = {
         name = "LSP",
         c = { name = "Call hierarchy" },
