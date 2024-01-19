@@ -1,0 +1,23 @@
+[user]
+	name = Alex Petrean
+	email = alex@padfoot.cc
+
+[includeif "hasconfig:remote.*.url:git@github.com:snyk/**"]
+	path = .gitconfig.snyk
+
+[includeif "hasconfig:remote.*.url:https://github.com/snyk/**"]
+	path = .gitconfig.snyk
+
+[includeIf "hasconfig:remote.*.url:git@github.com:snyk-terraform-assets/**"]
+	path = .gitconfig.snyk
+
+[pull]
+	rebase = true
+[merge]
+	tool = nvimdiff
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[push]
+	autoSetupRemote = true
+[url "git@github.com:snyk"]
+	insteadOf = https://github.com/snyk
