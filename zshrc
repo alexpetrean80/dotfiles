@@ -65,6 +65,7 @@ try_add_to_path() {
 export GOPATH="$HOME/go/"
 
 try_add_to_path "$GOPATH"
+try_add_to_path "$HOME/.local/share/npm/bin"
 try_add_to_path "$HOME/.local/share/fnm"
 try_add_to_path "$HOME/.cargo/bin"
 try_add_to_path "$HOME/go/bin"

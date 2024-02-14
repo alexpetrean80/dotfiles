@@ -1,7 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/alexp/Repos/dotfiles
-- /home/alexp/Repos/cdp
+- /home/alexp/repos/dotfiles
+- /home/alexp/repos/help-students-app
+- /home/alexp/repos/cdp
+- /home/alexp/repos/help-students-backend
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- 'fix: remove establishment field from address and contact details forms and add
+  validation'
 hidecommandlog: false

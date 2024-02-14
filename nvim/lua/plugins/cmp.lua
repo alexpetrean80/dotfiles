@@ -6,7 +6,6 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
       "L3MON4D3/LuaSnip",
-      "zbirenbaum/copilot.lua",
     },
     config = function()
       local cmp = require("cmp")
@@ -64,7 +63,6 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "path" },
-          { name = "copilot" },
           {
             name = "buffer",
             option = {
