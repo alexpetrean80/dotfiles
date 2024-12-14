@@ -1,0 +1,100 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=10
+
+set linenumber
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamed
+
+set timeoutlen=5000
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+let mapleader = " "
+let g:WhichKey_ShowVimActions = "true"
+
+set highlightedyank
+set sneak
+set nerdtree
+set which-key
+
+nnoremap <leader>e :NERDTreeToggle<CR>
+
+nnoremap <leader>bb <Action>(
+nnoremap <leader>bn :tabnext<CR>
+nnoremap <leader>bp :tabprevious<CR>
+nnoremap <leader>bd :tabclose<CR>
+
+nnoremap <leader>\ :vsplit<CR>
+nnoremap <leader>- :split<CR>
+
+"nmap <leader><leader> <Action>(SearchEverywhere)
+nmap <leader>/ <Action>(FindInPath)
+map <leader>a <Action>(ShowIntentionActions)
+map <leader>r <Action>(RenameElement)
+nmap <leader>f <Action>(ReformatCode)
+
+" Refactorings
+map <leader>RR <Action>(Refactorings.QuickListPopupAction)
+map <leader>Rm <Action>(ExtractMethod)
+map <leader>Rv <Action>(IntroduceVariable)
+map <leader>Rf <Action>(IntroduceField)
+map <leader>Rs <Action>(ChangeSignature)
+
+" Move between panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+
+" Jump between methods in a file.
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
+
+
+" Simplify indentation in visual mode, by making the Action repeatable.
+vnoremap < <gv
+vnoremap > >gv
+
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+"" Map <leader>d to start debug
+map <leader>dd <Action>(Debug)
+map <leader>dc <Action>(DebugContinue)
+map <leader>dr <Action>(DebugRerun)
+map <leader>ds <Action>(DebugStop)
+map <leader>do <Action>(DebugStepOver)
+map <leader>di <Action>(DebugStepInto)
+map <leader>du <Action>(DebugStepOut)
+map <leader>de <Action>(DebugEvaluateExpression)
+map <leader>dp <Action>(DebugResumeProgram)
+map <leader>dk <Action>(DebugShowExecutionPoint)
+map <leader>dt <Action>(DebugToggleBreakpoint)
+map <leader><leader> <Action>(com.mituuz.fuzzier.Fuzzier)
+
+
+
+map <leader>gg <Action>(Git.ShowHistoryForFile)
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)

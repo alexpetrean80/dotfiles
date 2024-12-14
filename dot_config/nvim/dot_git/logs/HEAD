@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 d4df09ed5076d1bda22e4631c61cdf4c46b8eff9 Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1728976501 +0300	clone: from github.com:alexpetrean80/nvim.git
+d4df09ed5076d1bda22e4631c61cdf4c46b8eff9 d98d8b23abae62066a292b3d50169b94b267731d Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1728979801 +0300	commit: disable backup and add word wrap
+d98d8b23abae62066a292b3d50169b94b267731d c8904c1ed1c1022a5d6ca6f4c476fc2adb585e42 Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1730192013 +0200	pull --no-edit: Fast-forward
+c8904c1ed1c1022a5d6ca6f4c476fc2adb585e42 97b9c1b052bba0fdf11e4f9951bf5c74a8311724 Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1730192222 +0200	commit (amend): add barbecue
+97b9c1b052bba0fdf11e4f9951bf5c74a8311724 f8396bd7c05d8aa6c98d89aae2809f199ba9a491 Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1730215672 +0200	commit: remove faulty snyk_ls setup code
+f8396bd7c05d8aa6c98d89aae2809f199ba9a491 0ce7094e13f1081df01d007ccab609cd63d2eebb Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1731921240 +0200	commit: add neotest
+0ce7094e13f1081df01d007ccab609cd63d2eebb 3c7d91d7417c1579f1c564f106f60b9a37e68fd4 Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1732726021 +0200	commit: change buffer keymaps
+3c7d91d7417c1579f1c564f106f60b9a37e68fd4 22c33781cc6689b0e181d04904d1d42c589a13c2 Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1732726084 +0200	commit: update
+22c33781cc6689b0e181d04904d1d42c589a13c2 967ec73e4f89323d45da886a5e289dfe0893f8c8 Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1732726142 +0200	commit: cleanup
+967ec73e4f89323d45da886a5e289dfe0893f8c8 ae288653ff55fd37d93d0e6f1a4135350bb6deee Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1733487649 +0200	commit: add elixir extra
+ae288653ff55fd37d93d0e6f1a4135350bb6deee 18b4468d60c19785865228ed2b9077317b4810ee Alex-Tudor Petrean <alex-tudor.petrean@snyk.io> 1733515027 +0200	commit: remove nix extra as it fails to install nil
