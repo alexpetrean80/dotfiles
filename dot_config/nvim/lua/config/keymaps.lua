@@ -6,4 +6,4 @@ vim.keymap.set("n", "<leader>\\", "<cmd>vsplit<CR>", { desc = "Split Window Righ
 
 vim.keymap.del("n", "<leader>|")
 
-vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<CR>", { desc = "Buffer list" })
+vim.keymap.set("n", "<leader>bb", "<cmd>FzfLua buffers<CR>", { desc = "Buffer list" })
