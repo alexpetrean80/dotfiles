@@ -1,5 +1,5 @@
 return {
-  "catppuccin/nvim",
+  "catppuccin",
   opts = {
     styles = {
       comments = { "italic" },
