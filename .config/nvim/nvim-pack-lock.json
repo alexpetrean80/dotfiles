@@ -1,0 +1,21 @@
+{
+  "plugins": {
+    "LuaSnip": [],
+    "blink.cmp": {
+      "version": "1.0.0 - 2.0.0"
+    },
+    "catppuccin": [],
+    "friendly-snippets": [],
+    "git-blame.nvim": [],
+    "mini.nvim": {
+      "version": "'main'"
+    },
+    "nvim-lspconfig": [],
+    "nvim-treesitter": {
+      "version": "'master'"
+    },
+    "rainbow-delimiters.nvim": [],
+    "vim-test": [],
+    "vim-tmux-navigator": []
+  }
+}

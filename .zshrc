@@ -6,6 +6,10 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 
+export fzb() {
+b=$(git branch | fzf | tr -d '* ')
+git checkout "$b"
+}
 source "$HOME/.antidote/antidote.zsh"
 
 antidote load "$HOME/.zsh_plugins.txt"
