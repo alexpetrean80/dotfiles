@@ -1,0 +1,57 @@
+[
+  {
+    "context": "VimControl && !menu && vim_mode == normal",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space /": "pane::DeploySearch",
+
+      "space b b": "tab_switcher::Toggle",
+
+      "space c h": "editor::Hover",
+      "space c r": "editor::Rename",
+      "space o": "outline::Toggle",
+      "space c a": "editor::ToggleCodeActions",
+      "space c f": "editor::Format",
+
+      "space d d": "diagnostics::Deploy",
+      "space d n": "editor::GoToDiagnostic",
+      "space d p": "editor::GoToPrevDiagnostic",
+
+      "g d": "editor::GoToDefinition",
+      "g r": "editor::FindAllReferences",
+      "g D": "editor::GoToTypeDefinition",
+      "space l d": "editor::GoToDefinitionSplit",
+      "space l D": "editor::GoToTypeDefinitionSplit",
+
+      "space e": "workspace::ToggleLeftDock",
+      "space \\": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {}
+  },
+  {
+    "context": "EmptyPane || SharedScreen || Dock || Terminal || Editor && vim_mode=normal",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space b b": "tab_switcher::Toggle",
+      "space /": "pane::DeploySearch",
+      "space e": "workspace::ToggleLeftDock",
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]
