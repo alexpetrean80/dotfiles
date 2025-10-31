@@ -24,6 +24,7 @@ function M.setup()
 	require("user.packages.conform").setup()
 	require("user.packages.lspsaga").setup()
 	require("user.packages.neotest").setup()
+	require("user.packages.mason").setup()
 	vim.cmd('let test#strategy = "neovim_sticky"')
 end
 
