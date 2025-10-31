@@ -35,8 +35,7 @@ function M.lsp_maps()
 	M.keymap("n", "<leader>xp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Previous diagnostic")
 	M.keymap("n", "<leader>xb", "<cmd>Lspsaga show_buf_diagnostics ++normal<CR>", "Buffer diagnostics")
 	M.keymap("n", "<leader>xx", "<cmd>Lspsaga show_workspace_diagnostics ++normal<CR>", "Workspace Diagnostics")
-	M.keymap("n", "<leader>T", "Lspsaga term_toggle<CR>", "Terminal")
-
+	M.keymap("n", "<leader>T", "<cmd>Lspsaga term_toggle<CR>", "Terminal")
 end
 
 function M.nav()
