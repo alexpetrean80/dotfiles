@@ -1,0 +1,49 @@
+{
+  "plugins": {
+    "FixCursorHold.nvim": [],
+    "LuaSnip": [],
+    "blink.cmp": {
+      "version": "1.0.0 - 2.0.0"
+    },
+    "catppuccin": [],
+    "conform.nvim": [],
+    "friendly-snippets": [],
+    "git-blame.nvim": [],
+    "helm-ls.nvim": {
+      "rev": "d6f3a8d",
+      "src": "https://github.com/qvalentin/helm-ls.nvim"
+    },
+    "lspsaga.nvim": [],
+    "mason-lspconfig.nvim": {
+      "rev": "d7b5feb",
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "ad7146a",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "version": "'main'"
+    },
+    "neotest": [],
+    "neotest-golang": [],
+    "nvim-dap": [],
+    "nvim-dap-go": [],
+    "nvim-dap-view": [],
+    "nvim-dap-virtual-text": [],
+    "nvim-lspconfig": [],
+    "nvim-nio": [],
+    "nvim-treesitter": {
+      "version": "'master'"
+    },
+    "plenary.nvim": [],
+    "project.nvim": {
+      "rev": "8c6bad7",
+      "src": "https://github.com/ahmedkhalf/project.nvim"
+    },
+    "rainbow-delimiters.nvim": [],
+    "vim-test": [],
+    "vim-tmux-navigator": [],
+    "which-key.nvim": []
+  }
+}
