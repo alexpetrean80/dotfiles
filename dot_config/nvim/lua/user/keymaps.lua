@@ -18,7 +18,7 @@ end
 function M.lsp_maps()
     local conform = require("conform")
 
-    M.keymap("n", "<leader>r", "<cmd>Lspsaga lsp_rename ++project<CRL>", "Rename")
+    M.keymap("n", "<leader>r", "<cmd>Lspsaga lsp_rename ++project<CR>", "Rename")
     M.keymap("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", "Code Actions")
     M.keymap("n", "<leader>lf", conform.format, "Format")
     M.keymap("n", "<leader>lF", "<cmd>Lspsaga finder<CR>", "Finder")
