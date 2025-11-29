@@ -1,0 +1,101 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew bash
+brew bat
+brew brotli
+brew ca-certificates
+brew certifi
+brew chezmoi
+brew cmake
+brew curl
+brew delve
+brew direnv
+brew eza
+brew fd
+brew fnm
+brew fzf
+brew gettext
+brew gh
+brew glow
+brew gmp
+brew gnupg
+brew gnutls
+brew go
+brew helm
+brew httpie
+brew icu4c@77
+brew icu4c@78
+brew krb5
+brew lazygit
+brew libassuan
+brew libcbor
+brew libevent
+brew libfido2
+brew libgcrypt
+brew libgit2
+brew libgpg-error
+brew libidn2
+brew libksba
+brew libnghttp2
+brew libnghttp3
+brew libngtcp2
+brew libssh2
+brew libtasn1
+brew libunistring
+brew libusb
+brew libuv
+brew lpeg
+brew luajit
+brew luv
+brew lz4
+brew make
+brew mpdecimal
+brew ncurses
+brew neovim --HEAD
+brew nettle
+brew npth
+brew oniguruma
+brew openssl@3
+brew p11-kit
+brew pcre2
+brew pinentry
+brew pinentry-mac
+brew postgresql@14
+brew python@3.14
+brew readline
+brew ripgrep
+brew rtmpdump
+brew sqlite
+brew starship
+brew stow
+brew stylua
+brew teleport
+brew terraform
+brew tilt
+brew tmux
+brew tmux-sessionizer
+brew tree-sitter
+brew unbound
+brew unibilium
+brew utf8proc
+brew wget
+brew xz
+brew zstd
+
+tap homebrew/cask
+cask slack
+cask visual-studio-code
+cask wezterm
+
+tap charmbracelet/tap
+brew freeze
+
+tap hashicorp/tap
+
+tap rcmdnk/file
+brew brew-file
+
+# App Store applications
+appstore 1532419400 MeetingBar (4.11.6)
