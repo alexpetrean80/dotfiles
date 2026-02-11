@@ -20,10 +20,12 @@ function M.setup()
     require("user.packages.blink").setup()
     require("user.packages.whichkey").setup()
     require("user.packages.dap").setup()
+    require("user.packages.go").setup()
     require("user.packages.conform").setup()
     require("user.packages.lspsaga").setup()
     require("user.packages.neotest").setup()
     require("user.packages.mason").setup()
+
     vim.cmd('let test#strategy = "neovim_sticky"')
 end
 
