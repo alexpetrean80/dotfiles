@@ -9,7 +9,32 @@ function M.setup()
     require("mason").setup()
     require("mason-lspconfig").setup({
         automatic_enable = true,
-        ensure_installed = { "lua_ls", "gopls", "helm_ls", "vtsls", "sqls", "terraformls", "yamlls" },
+        ensure_installed = {
+            "clang-format",
+            "clangd",
+            "gopls",
+            "gofumpt",
+            "goimports",
+            "gopls",
+            "gotests",
+            "helm_ls",
+            "jsonls",
+            "eslint_d",
+            "lua_ls",
+            "luacheck",
+            "markdownlint",
+            "marksman",
+            "mdformat",
+            "prettierd",
+            "ruff",
+            "spectral",
+            "sqls",
+            "stylua",
+            "terraformls",
+            "ts_ls",
+            "vtsls",
+            "yamlls",
+        },
     })
     require("helm-ls").setup()
 end

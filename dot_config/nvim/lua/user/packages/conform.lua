@@ -8,8 +8,11 @@ function M.setup()
     require("conform").setup({
         formatters_by_ft = {
             lua = { "stylua" },
-            go = { "gofmt", "golines", "goimport" },
-            nix = { "alejandra" },
+            go = { "gofmt", "golines", "goimports" },
+            json = { "prettier", "prettierd" },
+            javascript = { "prettier", "prettierd" },
+            typescript = { "prettier", "prettierd" },
+            python = { "isort", "black" },
         },
     })
 end
