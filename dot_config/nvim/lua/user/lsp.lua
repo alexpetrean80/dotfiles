@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    vim.lsp.enable({ "lua_ls", "nixd", "gopls", "tsserver", "sqls", "terraformls" })
+    vim.lsp.enable({ "lua_ls",  "gopls", "tsserver", "sqls", "terraformls" })
 
     vim.lsp.config("lua_ls", {
         settings = {
