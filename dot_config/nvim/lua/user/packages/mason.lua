@@ -14,6 +14,7 @@ function M.setup()
             "gopls",
             "gopls",
             "helm_ls",
+	    "jdtls",
             "jsonls",
             "lua_ls",
             "marksman",
