@@ -5,7 +5,7 @@
       "src": "https://github.com/antoinemadec/FixCursorHold.nvim"
     },
     "LuaSnip": {
-      "rev": "21f74f7ba8c49f95f9d7c8293b147c2901dd2d3a",
+      "rev": "dae4f5aaa3574bd0c2b9dd20fb9542a02c10471c",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "Navigator.nvim": {
@@ -13,20 +13,20 @@
       "src": "ssh://git@github.com/numToStr/Navigator.nvim"
     },
     "blink.cmp": {
-      "rev": "bae4bae0eedd1fa55f34b685862e94a222d5c6f8",
+      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
       "src": "https://github.com/Saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
     "catppuccin": {
-      "rev": "83458471fe59fff8ba94e104ccd835233839f06d",
+      "rev": "0a5de4da015a175f416d6ef1eda84661623e0500",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
-      "rev": "b4aab989db276993ea5dcb78872be494ce546521",
+      "rev": "e969e302bced7ffb9a0a0323629f31feb0ca35a6",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "friendly-snippets": {
-      "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "git-blame.nvim": {
@@ -42,7 +42,7 @@
       "src": "https://github.com/ray-x/guihua.lua"
     },
     "helm-ls.nvim": {
-      "rev": "d6f3a8d",
+      "rev": "f0b9a1723890971a6d84890b50dbf5f40974ea1b",
       "src": "https://github.com/qvalentin/helm-ls.nvim"
     },
     "lspsaga.nvim": {
@@ -50,28 +50,28 @@
       "src": "https://github.com/nvimdev/lspsaga.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "d7b5feb",
+      "rev": "6c4830e37743b060d13c9269394176aea6a0fbc8",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
-      "rev": "ad7146a",
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "c122e852517adaf7257688e435369c050da113b1",
+      "rev": "ccfc8c35cac348070a9528410c794459c4cc2eeb",
       "src": "https://github.com/echasnovski/mini.nvim",
       "version": "'main'"
     },
     "neotest": {
-      "rev": "2cf3544fb55cdd428a9a1b7154aea9c9823426e8",
+      "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-golang": {
-      "rev": "0ada81e50429a071cc7d349301762e4ee04dcb2a",
+      "rev": "03b7198680cdfc7a8706ad99623993db8e57a687",
       "src": "https://github.com/fredrikaverpil/neotest-golang"
     },
     "nvim-dap": {
-      "rev": "5dd4d50f2e6a2eaf9e57fad023d294ef371bda35",
+      "rev": "db321947bb289a2d4d76a32e76e4d2bd6103d7df",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-go": {
@@ -79,7 +79,7 @@
       "src": "https://github.com/leoluz/nvim-dap-go"
     },
     "nvim-dap-view": {
-      "rev": "143411d3e5d76814345030d7029af935afc7116d",
+      "rev": "4b2bd1773bbb0e2fa740ed6101dfeb50bd98ac38",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-dap-virtual-text": {
@@ -87,7 +87,7 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lspconfig": {
-      "rev": "3db16ceeea947517f0dc1404c24dcb5ab0c91d26",
+      "rev": "5a855bcfec7973767a1a472335684bbd71d2fa2b",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -108,19 +108,19 @@
       "src": "https://github.com/ahmedkhalf/project.nvim"
     },
     "rainbow-delimiters.nvim": {
-      "rev": "97bf4b8ef9298644a29fcd9dd41a0210cf08cac7",
+      "rev": "e2858c43caafec291f915ef25fbed27bbe78abbd",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
     },
     "vim-test": {
-      "rev": "fba18e168565f055d4061408ada0f6abd9ea8bbd",
+      "rev": "f881edb21e7a092f5793687d058c257dddb961d3",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-tmux-navigator": {
-      "rev": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a",
+      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "ssh://git@github.com/christoomey/vim-tmux-navigator"
     },
     "which-key.nvim": {
-      "rev": "370ec46f710e058c9c1646273e6b225acf47cbed",
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
     }
   }
