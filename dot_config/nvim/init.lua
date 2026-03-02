@@ -103,11 +103,42 @@ require("blink.cmp").setup({
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
     },
-    completion = {
-        documentation = { auto_show = true },
-        list = { selection = { preselect = false } },
-        trigger = { show_in_snippet = false },
+    snippets = { preset = "luasnip" },
+    sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+        providers = {
+            lsp = {
+                timeout_ms = 3000,
+                min_keyword_length = 0,
+            },
+        },
     },
+    completion = {
+        keyword = { range = "full" },
+        trigger = {
+            prefetch_on_insert = true,
+            show_in_snippet = false,
+        },
+        list = {
+            selection = { preselect = false },
+            max_items = 200,
+        },
+        accept = { resolve_timeout_ms = 200 },
+        documentation = {
+            auto_show = true,
+            auto_show_delay_ms = 300,
+        },
+        ghost_text = { enabled = true },
+        menu = {
+            draw = {
+                columns = {
+                    { "kind_icon" },
+                    { "label", "label_description", gap = 1 },
+                },
+            },
+        },
+    },
+    signature = { enabled = true },
 })
 
 require("go").setup()
@@ -150,6 +181,7 @@ require("which-key").setup({
 })
 
 require("helm-ls").setup()
+
 local dap = require("dap")
 local dapui = require("dapui")
 dapui.setup()
@@ -251,6 +283,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- [[ SECTION: LSP ]]
+-- Enhanced completion capabilities for blink.cmp (label details, resolve support, etc.)
+vim.lsp.config("*", {
+    capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
 vim.lsp.enable({ "lua_ls", "gopls", "ts_ls", "sqls", "terraformls" })
 
 vim.lsp.config("lua_ls", {
