@@ -49,6 +49,10 @@
       "rev": "f0b9a1723890971a6d84890b50dbf5f40974ea1b",
       "src": "https://github.com/qvalentin/helm-ls.nvim"
     },
+    "inc-rename.nvim": {
+      "rev": "a2f4b564c72ea1f22cba2caa97db603618d16d6f",
+      "src": "https://github.com/smjonas/inc-rename.nvim"
+    },
     "lspsaga.nvim": {
       "rev": "8efe00d6aed9db6449969f889170f1a7e43101a1",
       "src": "ssh://git@github.com/nvimdev/lspsaga.nvim"
@@ -73,6 +77,14 @@
     "neotest-golang": {
       "rev": "03b7198680cdfc7a8706ad99623993db8e57a687",
       "src": "https://github.com/fredrikaverpil/neotest-golang"
+    },
+    "noice.nvim": {
+      "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
+      "src": "https://github.com/folke/noice.nvim"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-dap": {
       "rev": "db321947bb289a2d4d76a32e76e4d2bd6103d7df",

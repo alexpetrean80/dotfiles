@@ -38,6 +38,9 @@ vim.diagnostic.config({
 -- [[ SECTION: Plugins ]]
 vim.pack.add({
     { src = "https://github.com/folke/snacks.nvim" },
+    { src = "https://github.com/folke/noice.nvim" },
+    { src = "https://github.com/MunifTanjim/nui.nvim" },
+    { src = "https://github.com/smjonas/inc-rename.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/nvim-neotest/nvim-nio" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -86,7 +89,6 @@ require("mini.surround").setup()
 require("mini.icons").setup()
 require("mini.git").setup()
 require("mini.move").setup()
-require("mini.files").setup()
 
 require("snacks").setup({
     animate = { enabled = true },
@@ -108,6 +110,21 @@ require("snacks").setup({
     words = { enabled = true },
     zen = { enabled = true },
 })
+
+require("noice").setup({
+    presets = {
+        command_palette = true,
+        long_message_to_split = true,
+        inc_rename = true,
+	bottom_search = true,
+    },
+    notify = { enabled = false },
+    routes = {
+        { filter = { event = "notify" }, opts = { skip = true } },
+    },
+})
+
+require("inc_rename").setup()
 
 require("luasnip").config.set_config({
     history = true,
@@ -408,14 +425,15 @@ keymap("n", "<leader>\\", "<cmd>vsplit<CR>", "Vertical split")
 Snacks.keymap.set("n", "<leader><leader>", function()
     Snacks.picker.files()
 end, { desc = "Files" })
-Snacks.keymap.set("n", "<leader>e", function()
-    MiniFiles.open()
-end, { desc = "Explorer" })
+
+keymap("n", "<leader>e", require("mini.files").open, "Explorer")
 Snacks.keymap.set("n", "<leader>/", function()
     Snacks.picker.grep()
 end, { desc = "Grep" })
 
-Snacks.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename", lsp = { method = "textDocument/rename" } })
+Snacks.keymap.set("n", "<leader>r", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end, { desc = "Rename (inc)", expr = true, lsp = { method = "textDocument/rename" } })
 Snacks.keymap.set(
     "n",
     "<leader>la",
@@ -544,7 +562,7 @@ keymap("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", "Chat Toggle")
 keymap("v", "<leader>ac", "<cmd>CodeCompanionChat Add<cr>", "Chat Add (selection)")
 
 -- Go keymaps via Snacks.keymap (filetype-specific)
-Snacks.keymap.set("n", "<leader>lg", "<cmd>GoFmt<cr>", { desc = "Go Format", ft = "go" })
+Snacks.keymap.set("n", "<leader>lf", "<cmd>GoFmt<cr>", { desc = "Go Format", ft = "go" })
 Snacks.keymap.set("n", "<leader>lI", "<cmd>GoImports<cr>", { desc = "Go Imports", ft = "go" })
 Snacks.keymap.set("n", "<leader>lA", "<cmd>GoAddTag<cr>", { desc = "Go Add Tags", ft = "go" })
 Snacks.keymap.set("n", "<leader>lR", "<cmd>GoRmTag<cr>", { desc = "Go Remove Tags", ft = "go" })
