@@ -37,6 +37,7 @@ vim.diagnostic.config({
 
 -- [[ SECTION: Plugins ]]
 vim.pack.add({
+    { src = "https://github.com/folke/snacks.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/nvim-neotest/nvim-nio" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -80,15 +81,33 @@ require("conform").setup({
 require("mini.starter").setup()
 require("mini.statusline").setup()
 require("mini.files").setup()
-require("mini.pick").setup()
 require("mini.pairs").setup()
 require("mini.surround").setup()
 require("mini.icons").setup()
-require("mini.indentscope").setup()
 require("mini.git").setup()
 require("mini.move").setup()
-require("mini.notify").setup()
-require("mini.extra").setup()
+require("mini.files").setup()
+
+require("snacks").setup({
+    animate = { enabled = true },
+    bigfile = { enabled = true },
+    indent = { enabled = true },
+    bufdelete = { enabled = true },
+    explorer = { enabled = false },
+    gh = { enabled = true },
+    git = { enabled = true },
+    gitbrowse = { enabled = true },
+    keymap = { enabled = true },
+    lazygit = { enabled = true },
+    notifier = { enabled = true },
+    picker = { enabled = true },
+    quickfile = { enabled = true },
+    rename = { enabled = true },
+    scroll = { enabled = true },
+    statuscolumn = { enabled = true },
+    words = { enabled = true },
+    zen = { enabled = true },
+})
 
 require("luasnip").config.set_config({
     history = true,
@@ -179,6 +198,7 @@ require("which-key").setup({
         { "<leader>l", group = "LSP", mode = "n" },
         { "<leader>t", group = "Testing", mode = "n" },
         { "<leader>a", group = "AI", mode = "n" },
+        { "<leader>z", group = "Zen", mode = "n" },
     },
 })
 
@@ -189,10 +209,16 @@ local dapui = require("dapui")
 
 -- DAP breakpoint signs (Nerd Font icons)
 vim.fn.sign_define("DapBreakpoint", { text = "󰑓", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointCondition", { text = "󰘬", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+vim.fn.sign_define(
+    "DapBreakpointCondition",
+    { text = "󰘬", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+)
 vim.fn.sign_define("DapLogPoint", { text = "󰒍", texthl = "DapLogPoint", linehl = "", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = "→", texthl = "DapStopped", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointRejected", { text = "󰅖", texthl = "DapBreakpointRejected", linehl = "", numhl = "" })
+vim.fn.sign_define(
+    "DapBreakpointRejected",
+    { text = "󰅖", texthl = "DapBreakpointRejected", linehl = "", numhl = "" }
+)
 
 dapui.setup()
 dap.listeners.before.attach["dapui_config"] = function()
@@ -223,7 +249,7 @@ require("codecompanion").setup({
     },
     display = {
         action_palette = {
-            provider = "mini_pick",
+            provider = "snacks",
         },
         chat = {
             window = {
@@ -256,6 +282,15 @@ require("codecompanion").setup({
 -- [[ SECTION: Autocmds ]]
 local augroup = vim.api.nvim_create_augroup("UserAutoCmds", { clear = true })
 local format_sync_grp = vim.api.nvim_create_augroup("FormatSync", { clear = true })
+
+-- Snacks rename integration with mini.files
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesActionRename",
+    group = augroup,
+    callback = function(event)
+        require("snacks").rename.on_rename_file(event.data.from, event.data.to)
+    end,
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -315,24 +350,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "go",
-    group = augroup,
-    callback = function(ev)
-        local opts = { buffer = ev.buf, silent = true }
-        local km = function(mode, lhs, rhs, desc)
-            vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", opts, { desc = desc }))
-        end
-        km("n", "<leader>lg", "<cmd>GoFmt<cr>", "Go Format")
-        km("n", "<leader>lI", "<cmd>GoImports<cr>", "Go Imports")
-        km("n", "<leader>lA", "<cmd>GoAddTag<cr>", "Go Add Tags")
-        km("n", "<leader>lR", "<cmd>GoRmTag<cr>", "Go Remove Tags")
-        km("n", "<leader>ls", "<cmd>GoFillStruct<cr>", "Fill Struct")
-        km("n", "<leader>le", "<cmd>GoIfErr<cr>", "If Err")
-        km("n", "<leader>lc", "<cmd>GoCmt<cr>", "Comment")
-    end,
-})
-
 -- [[ SECTION: LSP ]]
 -- Enhanced completion capabilities for blink.cmp (label details, resolve support, etc.)
 vim.lsp.config("*", {
@@ -380,56 +397,103 @@ vim.lsp.config("ts_ls", {
 })
 
 -- [[ SECTION: Keymaps ]]
+local Snacks = require("snacks")
+local conform = require("conform")
+
 local function keymap(mode, lhs, rhs, desc)
     vim.keymap.set(mode, lhs, rhs, { desc = desc, silent = true })
 end
 
-local mini_pick = require("mini.pick")
-local mini_files = require("mini.files")
-local mini_extra = require("mini.extra")
-
 keymap("n", "<leader>\\", "<cmd>vsplit<CR>", "Vertical split")
-keymap("n", "<leader><leader>", mini_pick.builtin.files, "Files")
-keymap("n", "<leader>e", mini_files.open, "Explorer")
-keymap("n", "<leader>/", mini_pick.builtin.grep_live, "Live grep")
+Snacks.keymap.set("n", "<leader><leader>", function()
+    Snacks.picker.files()
+end, { desc = "Files" })
+Snacks.keymap.set("n", "<leader>e", function()
+    MiniFiles.open()
+end, { desc = "Explorer" })
+Snacks.keymap.set("n", "<leader>/", function()
+    Snacks.picker.grep()
+end, { desc = "Grep" })
 
-local conform = require("conform")
-keymap("n", "<leader>r", vim.lsp.buf.rename, "Rename")
-keymap("n", "<leader>la", vim.lsp.buf.code_action, "Code Actions")
+Snacks.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename", lsp = { method = "textDocument/rename" } })
+Snacks.keymap.set(
+    "n",
+    "<leader>la",
+    vim.lsp.buf.code_action,
+    { desc = "Code Actions", lsp = { method = "textDocument/codeAction" } }
+)
 keymap("n", "<leader>lf", conform.format, "Format")
-keymap("n", "<leader>lF", function()
-    mini_extra.pickers.lsp({ scope = "workspace_symbol" })
-end, "Workspace symbols")
-keymap("n", "<leader>ld", vim.lsp.buf.definition, "Go to definition")
-keymap("n", "<leader>li", function()
-    mini_extra.pickers.lsp({ scope = "implementation" })
-end, "Find implementations")
-keymap("n", "<leader>lD", vim.lsp.buf.declaration, "Go to declaration")
-keymap("n", "<leader>lr", function()
-    mini_extra.pickers.lsp({ scope = "references" })
-end, "LSP References")
-keymap("n", "<leader>lt", vim.lsp.buf.type_definition, "Go to type definition")
-keymap("n", "K", vim.lsp.buf.hover, "Hover")
+Snacks.keymap.set("n", "<leader>lF", function()
+    Snacks.picker.lsp_workspace_symbols()
+end, { desc = "Workspace symbols" })
+Snacks.keymap.set(
+    "n",
+    "<leader>ld",
+    vim.lsp.buf.definition,
+    { desc = "Go to definition", lsp = { method = "textDocument/definition" } }
+)
+Snacks.keymap.set("n", "<leader>li", function()
+    Snacks.picker.lsp_implementations()
+end, { desc = "Find implementations" })
+Snacks.keymap.set(
+    "n",
+    "<leader>lD",
+    vim.lsp.buf.declaration,
+    { desc = "Go to declaration", lsp = { method = "textDocument/declaration" } }
+)
+Snacks.keymap.set("n", "<leader>lr", function()
+    Snacks.picker.lsp_references()
+end, { desc = "LSP References" })
+Snacks.keymap.set(
+    "n",
+    "<leader>lt",
+    vim.lsp.buf.type_definition,
+    { desc = "Go to type definition", lsp = { method = "textDocument/typeDefinition" } }
+)
+Snacks.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover", lsp = { method = "textDocument/hover" } })
 keymap("n", "<leader>xn", vim.diagnostic.goto_next, "Next diagnostic")
 keymap("n", "<leader>xp", vim.diagnostic.goto_prev, "Previous diagnostic")
 keymap("n", "<leader>xb", function()
     vim.diagnostic.setloclist()
 end, "Buffer diagnostics")
 keymap("n", "<leader>xx", function()
-    vim.diagnostic.setqflist()
+    Snacks.picker.diagnostics()
 end, "Workspace Diagnostics")
-keymap("n", "<leader>T", "<cmd>term<CR>i", "Terminal")
+Snacks.keymap.set("n", "<leader>T", function()
+    Snacks.terminal()
+end, { desc = "Terminal" })
 
-keymap("n", "<leader>gg", "<cmd>term lazygit<CR>i", "Lazygit")
-keymap("n", "<leader>gp", "<cmd>term gh pr create<CR>i", "Create PR")
-keymap("n", "<leader>gW", "<cmd>term gh pr view<CR>i", "View PR (Terminal)")
-keymap("n", "<leader>gw", "<cmd>!gh pr view --web<CR>", "View PR (Browser)")
-keymap("n", "<leader>gd", "<cmd>term gh dash .<CR>i", "GH dash")
+Snacks.keymap.set("n", "<leader>gg", function()
+    Snacks.lazygit()
+end, { desc = "Lazygit" })
+Snacks.keymap.set("n", "<leader>gp", function()
+    Snacks.picker.gh_pr()
+end, { desc = "Pull Requests" })
+Snacks.keymap.set("n", "<leader>gP", function()
+    Snacks.picker.gh_pr({ state = "all" })
+end, { desc = "Pull Requests (all)" })
+Snacks.keymap.set("n", "<leader>gw", function()
+    Snacks.gitbrowse()
+end, { desc = "Open in browser" })
+Snacks.keymap.set("n", "<leader>gd", function()
+    Snacks.picker.git_diff()
+end, { desc = "Git diff (hunks)" })
 
-keymap("n", "<leader>bb", mini_pick.builtin.buffers, "Buffers")
+Snacks.keymap.set("n", "<leader>bb", function()
+    Snacks.picker.buffers()
+end, { desc = "Buffers" })
 keymap("n", "<leader>bn", "<cmd>bnext<CR>", "Next")
 keymap("n", "<leader>bp", "<cmd>bprevious<CR>", "Previous")
-keymap("n", "<leader>bd", "<cmd>bdelete<CR>", "Delete")
+Snacks.keymap.set("n", "<leader>bd", function()
+    Snacks.bufdelete()
+end, { desc = "Delete buffer (smart)" })
+keymap("n", "<leader>bD", "<cmd>bdelete<CR>", "Delete buffer (force)")
+Snacks.keymap.set("n", "<leader>cR", function()
+    Snacks.rename.rename_file()
+end, { desc = "Rename file" })
+Snacks.keymap.set("n", "<leader>z", function()
+    Snacks.zen()
+end, { desc = "Zen mode" })
 
 keymap("n", "<leader>db", dap.toggle_breakpoint, "Toggle Breakpoint")
 keymap("n", "<leader>dc", dap.continue, "Continue")
@@ -478,6 +542,15 @@ end, "Summary")
 keymap("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", "Action Palette")
 keymap("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", "Chat Toggle")
 keymap("v", "<leader>ac", "<cmd>CodeCompanionChat Add<cr>", "Chat Add (selection)")
+
+-- Go keymaps via Snacks.keymap (filetype-specific)
+Snacks.keymap.set("n", "<leader>lg", "<cmd>GoFmt<cr>", { desc = "Go Format", ft = "go" })
+Snacks.keymap.set("n", "<leader>lI", "<cmd>GoImports<cr>", { desc = "Go Imports", ft = "go" })
+Snacks.keymap.set("n", "<leader>lA", "<cmd>GoAddTag<cr>", { desc = "Go Add Tags", ft = "go" })
+Snacks.keymap.set("n", "<leader>lR", "<cmd>GoRmTag<cr>", { desc = "Go Remove Tags", ft = "go" })
+Snacks.keymap.set("n", "<leader>ls", "<cmd>GoFillStruct<cr>", { desc = "Fill Struct", ft = "go" })
+Snacks.keymap.set("n", "<leader>le", "<cmd>GoIfErr<cr>", { desc = "If Err", ft = "go" })
+Snacks.keymap.set("n", "<leader>lc", "<cmd>GoCmt<cr>", { desc = "Comment", ft = "go" })
 
 -- [[ SECTION: Finish ]]
 vim.cmd.colorscheme("catppuccin")

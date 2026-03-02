@@ -119,6 +119,10 @@
       "rev": "e2858c43caafec291f915ef25fbed27bbe78abbd",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
     },
+    "snacks.nvim": {
+      "rev": "9912042fc8bca2209105526ac7534e9a0c2071b2",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
     "vim-test": {
       "rev": "f881edb21e7a092f5793687d058c257dddb961d3",
       "src": "https://github.com/vim-test/vim-test"
