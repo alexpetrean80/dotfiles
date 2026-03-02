@@ -1,33 +1,30 @@
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
-" You can find a list of commands here: https://jb.gg/h38q75
-" Find more examples here: https://jb.gg/share-ideavimrc
+" .ideavimrc - Maximum parity with dot_config/nvim/init.lua
+" IdeaVim uses same commands as .vimrc. Docs: https://jb.gg/h38q75
+" If an action fails: set trackactionids to find the correct action ID
 
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
+" === Options (parity with Neovim init.lua) ===
 set scrolloff=10
-
-set linenumber
+set sidescrolloff=8
+set number
+set relativenumber
+set wrap
+set tabstop=8
+set ignorecase
+set smartcase
+set clipboard+=unnamedplus
 set showmode
 set showcmd
 set visualbell
-set clipboard+=unnamed
-
-set timeoutlen=5000
-" Do incremental searching.
 set incsearch
+set timeoutlen=5000
 
-" Don't use Ex mode, use Q for formatting.
+" Don't use Ex mode, use Q for formatting
 map Q gq
 
-" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-
-" Highlight copied text
+" === IdeaVim plugins (parity: highlightedyank, commentary, surround, sneak, which-key) ===
 Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 let mapleader = " "
 let g:WhichKey_ShowVimActions = "true"
@@ -35,66 +32,85 @@ let g:WhichKey_ShowVimActions = "true"
 set highlightedyank
 set sneak
 set nerdtree
+set surround
 set which-key
 
-nnoremap <leader>e :NERDTreeToggle<CR>
+" === Splits (parity: <leader>\ = vsplit, <leader>- = split) ===
+nnoremap <leader>\ :vsplit<CR>
+nnoremap <leader>- :split<CR>
 
-nnoremap <leader>bb <Action>(
+" === Files / Explorer / Search (parity with mini.pick, mini.files) ===
+nnoremap <leader><leader> <Action>(com.mituuz.fuzzier.Fuzzier)
+nnoremap <leader>e :NERDTreeToggle<CR>
+nmap <leader>/ <Action>(FindInPath)
+
+" === LSP-like actions (parity with Neovim LSP keymaps) ===
+map <leader>r <Action>(RenameElement)
+map <leader>la <Action>(ShowIntentionActions)
+nmap <leader>lf <Action>(ReformatCode)
+nmap <leader>lF <Action>(FileStructurePopup)
+map <leader>ld <Action>(GotoDeclaration)
+map <leader>li <Action>(GotoImplementation)
+map <leader>lD <Action>(GotoDeclaration)
+map <leader>lr <Action>(FindUsages)
+map <leader>lt <Action>(GotoTypeDeclaration)
+nnoremap K <Action>(QuickDocumentation)
+
+" === Diagnostics (parity: xn, xp, xb, xx) ===
+nnoremap <leader>xn <Action>(GotoNextError)
+nnoremap <leader>xp <Action>(GotoPreviousError)
+nnoremap <leader>xb <Action>(ShowErrorDescription)
+nnoremap <leader>xx <Action>(ActivateProblemsView)
+
+" === Terminal (parity: <leader>T) ===
+nnoremap <leader>T <Action>(ActivateTerminalToolWindow)
+
+" === Buffers (parity: bb, bn, bp, bd) ===
+nnoremap <leader>bb <Action>(RecentFiles)
 nnoremap <leader>bn :tabnext<CR>
 nnoremap <leader>bp :tabprevious<CR>
 nnoremap <leader>bd :tabclose<CR>
 
-nnoremap <leader>\ :vsplit<CR>
-nnoremap <leader>- :split<CR>
+" === Debug (parity with Neovim DAP: db, dc, di, do, dO, dt, de, dr, dC) ===
+nnoremap <leader>db <Action>(ToggleLineBreakpoint)
+nnoremap <leader>dc <Action>(DebugContinue)
+nnoremap <leader>di <Action>(DebugStepInto)
+nnoremap <leader>do <Action>(DebugStepOver)
+nnoremap <leader>dO <Action>(DebugStepOut)
+nnoremap <leader>dt <Action>(ActivateDebugToolWindow)
+nnoremap <leader>de <Action>(DebugEvaluateExpression)
+vnoremap <leader>de <Action>(DebugEvaluateExpression)
+nnoremap <leader>dr <Action>(DebugRerun)
+nnoremap <leader>dC <Action>(ActivateDebugToolWindow)
 
-"nmap <leader><leader> <Action>(SearchEverywhere)
-nmap <leader>/ <Action>(FindInPath)
-map <leader>a <Action>(ShowIntentionActions)
-map <leader>r <Action>(RenameElement)
-nmap <leader>f <Action>(ReformatCode)
+" === Git (parity: gg, gp, gW, gw, gd) ===
+nnoremap <leader>gg <Action>(Git.ShowHistoryForFile)
+nnoremap <leader>gp <Action>(Git.CreatePullRequest)
+nnoremap <leader>gW <Action>(Git.ViewPullRequest)
+nnoremap <leader>gw <Action>(Git.ViewPullRequest)
+nnoremap <leader>gd <Action>(Git.ShowGitLog)
 
-" Refactorings
+" === Refactorings (keep useful IDE extras) ===
 map <leader>RR <Action>(Refactorings.QuickListPopupAction)
 map <leader>Rm <Action>(ExtractMethod)
 map <leader>Rv <Action>(IntroduceVariable)
 map <leader>Rf <Action>(IntroduceField)
 map <leader>Rs <Action>(ChangeSignature)
 
-" Move between panes
+" === Window navigation (parity: C-h/j/k/l) ===
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
-
-" Jump between methods in a file.
+" === Method navigation ===
 nnoremap [[ <Action>(MethodUp)
 nnoremap ]] <Action>(MethodDown)
 
-
-" Simplify indentation in visual mode, by making the Action repeatable.
+" === Visual mode indentation (repeatable) ===
 vnoremap < <gv
 vnoremap > >gv
 
+" === Insert mode completion (parity: Tab/C-j/C-k for completion) ===
 inoremap <C-j> <Action>(PopupMenu-selectNext)
 inoremap <C-k> <Action>(PopupMenu-selectPrev)
-
-"" Map <leader>d to start debug
-map <leader>dd <Action>(Debug)
-map <leader>dc <Action>(DebugContinue)
-map <leader>dr <Action>(DebugRerun)
-map <leader>ds <Action>(DebugStop)
-map <leader>do <Action>(DebugStepOver)
-map <leader>di <Action>(DebugStepInto)
-map <leader>du <Action>(DebugStepOut)
-map <leader>de <Action>(DebugEvaluateExpression)
-map <leader>dp <Action>(DebugResumeProgram)
-map <leader>dk <Action>(DebugShowExecutionPoint)
-map <leader>dt <Action>(DebugToggleBreakpoint)
-map <leader><leader> <Action>(com.mituuz.fuzzier.Fuzzier)
-
-
-
-map <leader>gg <Action>(Git.ShowHistoryForFile)
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
