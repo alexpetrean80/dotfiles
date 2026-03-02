@@ -56,7 +56,7 @@ vim.pack.add({
     { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
     { src = "https://github.com/mfussenegger/nvim-dap" },
     { src = "https://github.com/leoluz/nvim-dap-go" },
-    { src = "https://github.com/igorlfs/nvim-dap-view" },
+    { src = "https://github.com/rcarriga/nvim-dap-ui" },
     { src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
     { src = "https://github.com/ray-x/go.nvim" },
     { src = "https://github.com/ray-x/guihua.lua" },
@@ -150,6 +150,22 @@ require("which-key").setup({
 })
 
 require("helm-ls").setup()
+local dap = require("dap")
+local dapui = require("dapui")
+dapui.setup()
+dap.listeners.before.attach["dapui_config"] = function()
+    dapui.open()
+end
+dap.listeners.before.launch["dapui_config"] = function()
+    dapui.open()
+end
+dap.listeners.before["event_terminated"]["dapui_config"] = function()
+    dapui.close()
+end
+dap.listeners.before["event_exited"]["dapui_config"] = function()
+    dapui.close()
+end
+
 require("neotest").setup({
     adapters = { require("neotest-golang")() },
 })
@@ -328,13 +344,20 @@ keymap("n", "<leader>bn", "<cmd>bnext<CR>", "Next")
 keymap("n", "<leader>bp", "<cmd>bprevious<CR>", "Previous")
 keymap("n", "<leader>bd", "<cmd>bdelete<CR>", "Delete")
 
-local dap = require("dap")
 keymap("n", "<leader>db", dap.toggle_breakpoint, "Toggle Breakpoint")
 keymap("n", "<leader>dc", dap.continue, "Continue")
 keymap("n", "<leader>di", dap.step_into, "Step Into")
 keymap("n", "<leader>do", dap.step_over, "Step Over")
 keymap("n", "<leader>dO", dap.step_out, "Step Out")
-keymap("n", "<leader>dt", "<cmd>DapViewToggle<CR>", "Toggle View")
+keymap("n", "<leader>dt", dapui.toggle, "Toggle DAP UI")
+keymap("n", "<leader>de", dapui.eval, "Eval (cursor)")
+keymap("v", "<leader>de", dapui.eval, "Eval (selection)")
+keymap("n", "<leader>dr", function()
+    dapui.float_element("repl", { enter = true })
+end, "REPL (float)")
+keymap("n", "<leader>dC", function()
+    dapui.float_element("console", { enter = true })
+end, "Console (float)")
 
 keymap("n", "<leader>tn", "<cmd>TestNearest<CR>", "Nearest")
 keymap("n", "<leader>tf", "<cmd>TestFile<CR>", "File")
