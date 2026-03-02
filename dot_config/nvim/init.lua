@@ -62,6 +62,7 @@ vim.pack.add({
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
     { src = "https://github.com/qvalentin/helm-ls.nvim" },
+    { src = "https://github.com/olimorris/codecompanion.nvim" },
 })
 
 -- [[ SECTION: Plugin setup ]]
@@ -177,6 +178,7 @@ require("which-key").setup({
         { "<leader>d", group = "Debug", mode = "n" },
         { "<leader>l", group = "LSP", mode = "n" },
         { "<leader>t", group = "Testing", mode = "n" },
+        { "<leader>a", group = "AI", mode = "n" },
     },
 })
 
@@ -208,6 +210,47 @@ end
 
 require("neotest").setup({
     adapters = { require("neotest-golang")() },
+})
+
+-- CodeCompanion with Cursor ACP
+-- Prerequisites: cursor-agent login, then npm install -g @blowmage/cursor-agent-acp
+-- Wait for "Cursor" to appear in the chat buffer header before sending messages
+require("codecompanion").setup({
+    interactions = {
+        chat = {
+            adapter = "cursor_acp",
+        },
+    },
+    display = {
+        action_palette = {
+            provider = "mini_pick",
+        },
+        chat = {
+            window = {
+                position = "right",
+            },
+        },
+    },
+    adapters = {
+        acp = {
+            cursor_acp = function()
+                return require("codecompanion.adapters").extend("cagent", {
+                    name = "cursor_acp",
+                    formatted_name = "Cursor",
+                    commands = {
+                        -- Use npx so the adapter is found even if not globally installed
+                        default = { "npx", "--yes", "@blowmage/cursor-agent-acp" },
+                    },
+                    defaults = {
+                        timeout = 60000, -- 60s for slower startup
+                    },
+                })
+            end,
+        },
+    },
+    opts = {
+        log_level = "DEBUG", -- Set to "INFO" once working; run :checkhealth codecompanion for log path
+    },
 })
 
 -- [[ SECTION: Autocmds ]]
@@ -431,6 +474,10 @@ end, "Output")
 keymap("n", "<leader>tS", function()
     neotest.summary.toggle()
 end, "Summary")
+
+keymap("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", "Action Palette")
+keymap("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", "Chat Toggle")
+keymap("v", "<leader>ac", "<cmd>CodeCompanionChat Add<cr>", "Chat Add (selection)")
 
 -- [[ SECTION: Finish ]]
 vim.cmd.colorscheme("catppuccin")
