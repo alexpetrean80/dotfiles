@@ -1,0 +1,83 @@
+// Zed keymaps extracted from Neovim config
+// Leader key: Space (same as Neovim)
+// Merge desired bindings into ~/.config/zed/keymap.json
+//
+// Neovim source: lua/user/keymaps.lua, lua/user/plugins.lua
+// See Zed docs: https://zed.dev/docs/key-bindings
+// Run "zed: open default keymap" in command palette for full command list
+//
+// Note: With vim_mode enabled, Zed already has gd, gD, gy, gI, g., cd (rename), etc.
+// These leader bindings mirror your Neovim muscle memory.
+
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // === General (from keymaps.lua) ===
+      "space space": "file_finder::Toggle",
+      "space \\": "pane::SplitRight",
+      "space e": "project_panel::Toggle",
+      // "space /": "",
+      "space r": "editor::Rename",
+      // "space T": "",
+
+      // === LSP / Code (space + l) ===
+      // "space l a": "",
+      // "space l f": "",
+      "space l F": "outline::Toggle",
+      "space l d": "editor::GoToDefinition",
+      "space l i": "editor::GoToImplementation",
+      "space l D": "editor::GoToDeclaration",
+      // "space l r": "",
+      "space l t": "editor::GoToTypeDefinition",
+      // "space x n": "",
+      // "space x p": "",
+      // "space x b": "",
+      // "space x x": "",
+
+      // === Git (space + g) - lazygit/gh have no direct Zed equiv ===
+      // "space g g": "",
+      // "space g p": "git::Fetch",
+      // "space g w": "git::Fetch",
+      // "space g W": "git::Fetch",
+      // "space g d": "",
+
+      // === Buffers (space + b) ===
+      // "space b b": "",
+      // "space b n": "pane::ActivateNextItem",
+      // "space b p": "pane::ActivatePreviousItem",
+      // "space b d": "",
+
+      // === Debug (space + d) ===
+      // "space d b": "",
+      // "space d c": "",
+      // "space d i": "",
+      // "space d o": "",
+      // "space d O": "",
+      // "space d t": "",
+
+      // === Testing (space + t) - verify commands in Zed ===
+      // "space t n": "",
+      // "space t f": "",
+      // "space t s": "",
+      // "space t l": "",
+      // "space t g": "",
+
+      // Go-specific (from plugins.lua, buffer-local; need Go extension in Zed):
+      // space l g = GoFmt, space l I = GoImports, space l A = GoAddTag
+      // space l R = GoRmTag, space l s = GoFillStruct, space l e = GoIfErr, space l c = GoCmt
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "K": "editor::Hover",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-space": "editor::ShowCompletions",
+    },
+  },
+]
