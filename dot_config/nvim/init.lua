@@ -48,7 +48,6 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
     { src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
-    { src = "https://github.com/vim-test/vim-test" },
     { src = "https://github.com/f-person/git-blame.nvim" },
     { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/L3MON4D3/LuaSnip" },
@@ -184,6 +183,14 @@ require("helm-ls").setup()
 
 local dap = require("dap")
 local dapui = require("dapui")
+
+-- DAP breakpoint signs (Nerd Font icons)
+vim.fn.sign_define("DapBreakpoint", { text = "󰑓", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "󰘬", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+vim.fn.sign_define("DapLogPoint", { text = "󰒍", texthl = "DapLogPoint", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "→", texthl = "DapStopped", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "󰅖", texthl = "DapBreakpointRejected", linehl = "", numhl = "" })
+
 dapui.setup()
 dap.listeners.before.attach["dapui_config"] = function()
     dapui.open()
@@ -395,12 +402,34 @@ keymap("n", "<leader>dC", function()
     dapui.float_element("console", { enter = true })
 end, "Console (float)")
 
-keymap("n", "<leader>tn", "<cmd>TestNearest<CR>", "Nearest")
-keymap("n", "<leader>tf", "<cmd>TestFile<CR>", "File")
-keymap("n", "<leader>ts", "<cmd>TestSuite<CR>", "Suite")
-keymap("n", "<leader>tl", "<cmd>TestLast<CR>", "Last")
-keymap("n", "<leader>tg", "<cmd>TestVisit<CR>", "Go To Last")
+local neotest = require("neotest")
+keymap("n", "<leader>tn", function()
+    neotest.run.run()
+end, "Nearest")
+keymap("n", "<leader>tf", function()
+    neotest.run.run(vim.fn.expand("%"))
+end, "File")
+keymap("n", "<leader>ts", function()
+    neotest.run.run(vim.fn.getcwd())
+end, "Suite")
+keymap("n", "<leader>tl", function()
+    neotest.run.run_last()
+end, "Last")
+keymap("n", "<leader>tg", function()
+    neotest.jump.last()
+end, "Go To Last")
+keymap("n", "<leader>td", function()
+    neotest.run.run({ strategy = "dap" })
+end, "Debug Nearest")
+keymap("n", "<leader>tD", function()
+    neotest.run.run(vim.fn.expand("%"), { strategy = "dap" })
+end, "Debug File")
+keymap("n", "<leader>to", function()
+    neotest.output.open({ enter = true })
+end, "Output")
+keymap("n", "<leader>tS", function()
+    neotest.summary.toggle()
+end, "Summary")
 
 -- [[ SECTION: Finish ]]
-vim.cmd('let test#strategy = "neovim_sticky"')
 vim.cmd.colorscheme("catppuccin")
