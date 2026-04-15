@@ -7,9 +7,23 @@ export VISUAL="nvim"
 
 
 export fzb() {
-b=$(git branch | fzf | tr -d '* ')
-git checkout "$b"
+	b=$(git branch | fzf | tr -d '* ')
+	git checkout "$b"
 }
+
+export bb-cleanup() {
+}
+
+export bb-edit() {
+	$EDITOR "$HOME/.Brewfile"
+}
+
+export bb-sync() {
+	brew bundle --global cleanup --force
+	brew bundle --global
+}
+
+
 source "$HOME/.antidote/antidote.zsh"
 
 antidote load "$HOME/.zsh_plugins.txt"
