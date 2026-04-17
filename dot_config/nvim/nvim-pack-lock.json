@@ -17,10 +17,6 @@
       "rev": "384f304c8b04664c9e0091fbfb3923c5f97c1bcf",
       "src": "https://github.com/catppuccin/nvim"
     },
-    "codecompanion.nvim": {
-      "rev": "57d3f1bd08d1f37bf483daf3a6ff72e76280553a",
-      "src": "https://github.com/olimorris/codecompanion.nvim"
-    },
     "conform.nvim": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -62,13 +58,9 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "28d993854bdcde7d06f0990cfe6a2c6577f3f8ab",
+      "rev": "29447d7b0e1fc9bc9d0384953e63be3fae816736",
       "src": "https://github.com/echasnovski/mini.nvim",
       "version": "'main'"
-    },
-    "minuet-ai.nvim": {
-      "rev": "fbd2f59ec334b277ae27c4cd9587533c6e3eafd7",
-      "src": "https://github.com/milanglacier/minuet-ai.nvim"
     },
     "neotest": {
       "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
@@ -119,7 +111,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",
+      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {

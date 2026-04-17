@@ -71,8 +71,6 @@ vim.pack.add({
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
     { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
     { src = "https://github.com/qvalentin/helm-ls.nvim" },
-    { src = "https://github.com/olimorris/codecompanion.nvim" },
-    { src = "https://github.com/milanglacier/minuet-ai.nvim" },
 })
 
 -- [[ SECTION: Plugin setup ]]
@@ -161,35 +159,6 @@ require("luasnip").config.set_config({
 })
 require("luasnip.loaders.from_vscode").lazy_load()
 
-require("minuet").setup({
-    provider = "openai_fim_compatible",
-    n_completions = 1,
-    context_window = 512,
-    virtualtext = {
-        auto_trigger_ft = { "*" },
-        keymap = {
-            accept = "<Tab>",
-            accept_line = "<A-a>",
-            accept_n_lines = "<A-z>",
-            prev = "<A-[>",
-            next = "<A-]>",
-            dismiss = "<A-e>",
-        },
-    },
-    provider_options = {
-        openai_fim_compatible = {
-            api_key = "TERM",
-            name = "Ollama",
-            end_point = "http://localhost:11434/v1/completions",
-            model = "qwen2.5-coder:1.5b",
-            optional = {
-                max_tokens = 56,
-                top_p = 0.9,
-            },
-        },
-    },
-})
-
 require("blink.cmp").setup({
     keymap = {
         preset = nil,
@@ -251,11 +220,8 @@ require("mason-lspconfig").setup({
         "pyright",
         "ruff",
         "ruby_lsp",
-        "spectral",
-        "sqls",
         "terraformls",
         "tflint",
-        "ts_ls",
         "vtsls",
         "yamlls",
     },
@@ -334,47 +300,6 @@ require("neotest").setup({
         require("neotest-golang")(),
         require("neotest-python")({ dap = { justMyCode = false } }),
         require("neotest-jest")({}),
-    },
-})
-
--- CodeCompanion with Cursor ACP
--- Prerequisites: cursor-agent login, then npm install -g @blowmage/cursor-agent-acp
--- Wait for "Cursor" to appear in the chat buffer header before sending messages
-require("codecompanion").setup({
-    interactions = {
-        chat = {
-            adapter = "cursor_acp",
-        },
-    },
-    display = {
-        action_palette = {
-            provider = "snacks",
-        },
-        chat = {
-            window = {
-                position = "right",
-            },
-        },
-    },
-    adapters = {
-        acp = {
-            cursor_acp = function()
-                return require("codecompanion.adapters").extend("cagent", {
-                    name = "cursor_acp",
-                    formatted_name = "Cursor",
-                    commands = {
-                        -- Use npx so the adapter is found even if not globally installed
-                        default = { "npx", "--yes", "@blowmage/cursor-agent-acp" },
-                    },
-                    defaults = {
-                        timeout = 60000, -- 60s for slower startup
-                    },
-                })
-            end,
-        },
-    },
-    opts = {
-        log_level = "DEBUG", -- Set to "INFO" once working; run :checkhealth codecompanion for log path
     },
 })
 
