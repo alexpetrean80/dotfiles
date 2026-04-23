@@ -1,0 +1,10 @@
+[user]
+	name = Alex Petrean
+	email = alex.petrean@mailbox.org
+
+[alias]
+	pfl = push --force-with-lease
+	up = pull --rebase
+
+[includeIf "gitdir:~/Repos/optura/"]
+	path = ~/.gitconfig.optura
