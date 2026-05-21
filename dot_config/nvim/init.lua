@@ -473,6 +473,8 @@ local function keymap(mode, lhs, rhs, desc)
 end
 
 keymap("n", "<leader>\\", "<cmd>vsplit<CR>", "Vertical split")
+keymap("v", "<", "<gv", "Indent left, keep selection")
+keymap("v", ">", ">gv", "Indent right, keep selection")
 Snacks.keymap.set("n", "<leader><leader>", function()
     Snacks.picker.files()
 end, { desc = "Files" })
