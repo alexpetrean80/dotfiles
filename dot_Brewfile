@@ -18,7 +18,6 @@ if OS.mac?
   cask "notion"
   cask "slack"
   cask "teleport-connect"
-  cask "tidal"
   cask "zen"
 end
 
