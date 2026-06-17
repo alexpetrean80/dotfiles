@@ -1,3 +1,4 @@
+tap "charmbracelet/tap"
 tap "hashicorp/tap"
 
 if OS.mac?
@@ -6,6 +7,7 @@ if OS.mac?
   brew "libpq"
   brew "teleport"
   brew "vercel-cli"
+  brew "trivy"
 
   cask "alt-tab"
   cask "claude"
@@ -22,6 +24,7 @@ if OS.mac?
 end
 
 brew "bat"
+brew "charmbracelet/tap/crush"
 brew "chezmoi"
 brew "cloc"
 brew "eza"
